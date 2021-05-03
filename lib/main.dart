@@ -17,6 +17,16 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.amber,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(
+          headline1: TextStyle(),
+          headline4: TextStyle(color: Colors.redAccent),
+          bodyText2: TextStyle(fontSize: 18),
+          subtitle1: TextStyle(fontStyle: FontStyle.italic),
+        ),
+        accentIconTheme: IconThemeData(
+          size: 33
+        ),
       ),
       home: MyHomePage(title: 'Flutter First App'),
     );
@@ -77,34 +87,33 @@ class _MyHomePageState extends State<MyHomePage> {
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Like tapped $_counter times!',
+              style: Theme.of(context).textTheme.headline4,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline3,
-            ),
+            // Text(
+            //   'You have pushed the button this many times:',
+            //   style: Theme.of(context).textTheme.subtitle1,
+            // ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headline3,
+            // ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add, size: 40,),
-        
+        child: Icon(
+          Icons.favorite,
+          size: Theme.of(context).accentIconTheme.size,
+          color: Colors.red,
+        ),
       ),
+      backgroundColor: Colors.black54,
     );
   }
 }
