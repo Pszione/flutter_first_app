@@ -19,20 +19,20 @@ class AppGoogleTutorial01 extends StatelessWidget {
 
     return MaterialApp(
       title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          // child: Text(
-          //   'Hello World! - PS',
-          //   generateWordPairs().take(1).first.toString(),
-          //   WordPair.random().asPascalCase,
-          //   style: TextStyle(fontSize: 20),
-          // ),
-          child: RandomWords(),
-        ),
-      ),
+      home: RandomWords(),
+      // home: Scaffold(
+      //   appBar: AppBar(
+      //     title: const Text('Welcome to Flutter'),
+      //   ),
+      //   body: Center(
+      //     child: Text(
+      //       'Hello World! - PS',
+      //       generateWordPairs().take(1).first.toString(),
+      //       WordPair.random().asPascalCase,
+      //       style: TextStyle(fontSize: 20),
+      //     ),
+      //   ),
+      // ),
       theme: ThemeData(
         primarySwatch: Colors.amber, // 0xFFFFC107
       ),
