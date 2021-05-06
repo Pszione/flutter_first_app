@@ -41,7 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
               'Like tapped $_counter times!',
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Text(
               'another random text rs',
               style: Theme.of(context).textTheme.subtitle1,
