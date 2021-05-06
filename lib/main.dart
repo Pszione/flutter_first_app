@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:flutter_first_app/riverpodProviders.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
       ),
       home: MyHomePage(title: 'Flutter First App'),
+      //home: MySecondaryHomePage(title: 'Riverpod Simplified',),
     );
   }
 }
@@ -41,11 +45,7 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
+  // that it has a State object (defined below) that contains fields
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
@@ -58,25 +58,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -90,7 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
-          //
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -123,6 +108,137 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       backgroundColor: Colors.black54,
+    );
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+}
+
+class MySecondaryHomePage extends StatelessWidget{
+  MySecondaryHomePage({this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('Riverpod Simplified')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Username'),
+            Consumer(
+              builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
+                // watch is the key part of the builder
+                return watch(userProvider).when(
+                  // .maybeWhen OR .maybeMap
+                  error: (Object error, StackTrace stackTrace) {
+                  // error: (AsyncError<String> value)
+                    return Text('Error');
+                  },
+                  loading: () {
+                    // loading: (AsyncLoading<String> value)
+                    return Text('Loading...'); // CircularProgressIndicator();
+                  },
+                  data: (String value) {
+                    // data: (AsyncData<String> value) then Text(value.value)
+                    return Text('SUCCESS!'); // return Text(value);
+                  },
+                );
+              },
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Text('state counter',),
+            Consumer(
+              builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
+                return Text('State: ' + watch(counterController).toString());
+              },
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Text('Fake Database Counter'),
+            // Consumer(
+            //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
+            //     // watch is the key part of the builder
+            //     return watch(counterAsyncController).when(
+            //       data: (int value) {
+            //         return Text('AsyncValue: ' + value.toString());
+            //       },
+            //       error: (Object error, StackTrace stackTrace){
+            //         return Text('Error');
+            //       },
+            //       loading:(){
+            //         return CircularProgressIndicator();
+            //       },
+            //     );
+            //   },
+            // ),
+            SizedBox(
+              height: 60,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('clicked!');
+                context.read(counterController).add();
+                //context.read(counterAsyncController).add();
+              },
+              child: Text('Add'),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('clicked');
+                context.read(counterController).subtract();
+                //context.read(counterAsyncController).subtract();
+              },
+              child: Text('Subtract',),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            TaskItem(
+              label: 'Be handsome today!',
+              checkValue: false,
+            ),
+            TaskItem(
+              label: 'Study hard to buy that Porsche!',
+              checkValue: true,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TaskItem extends StatelessWidget{
+  const TaskItem({Key key, @required this.label, @required this.checkValue}) : super(key: key);
+
+  final String label;
+  final bool checkValue;
+
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      children: [
+        Checkbox(onChanged: null, value: checkValue),
+        Text(label),
+      ],
     );
   }
 }
