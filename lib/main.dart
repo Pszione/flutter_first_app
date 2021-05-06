@@ -34,7 +34,9 @@ class AppGoogleTutorial01 extends StatelessWidget {
       //   ),
       // ),
       theme: ThemeData(
-        primarySwatch: Colors.amber, // 0xFFFFC107
+        //primarySwatch: Colors.amber, // 0xFFFFC107
+        primaryColor: Colors.white,
+        accentColor: Colors.amber,
       ),
     );
   }
