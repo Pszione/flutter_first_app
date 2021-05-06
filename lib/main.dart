@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:english_words/english_words.dart';
 
-import 'package:flutter_first_app/homePageFirstApp.dart';
-import 'package:flutter_first_app/homePageRiverpodSimplified.dart';
-import 'package:flutter_first_app/riverpodProviders.dart';
-
+import 'homePageFirstApp.dart';
+import 'homePageRiverpodSimplified.dart';
 import 'homePageGoogleTutorial01.dart';
+import 'homePageFriendlyChat.dart';
 
 void main() {
-  runApp(AppGoogleTutorial01());
+  runApp(AppFriendlyChat());
+}
+
+class AppFriendlyChat extends StatelessWidget {
+  const AppFriendlyChat({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Friendly Chat',
+      home: ChatScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.amber, // 0xFFFFC107
+        //primaryColor: Colors.white,
+        //accentColor: Colors.amber,
+      ),
+    );
+  }
 }
 
 class AppGoogleTutorial01 extends StatelessWidget {
@@ -34,8 +50,8 @@ class AppGoogleTutorial01 extends StatelessWidget {
       //   ),
       // ),
       theme: ThemeData(
-        //primarySwatch: Colors.amber, // 0xFFFFC107
-        primaryColor: Colors.white,
+        primarySwatch: Colors.amber, // 0xFFFFC107
+        //primaryColor: Colors.white,
         accentColor: Colors.amber,
       ),
     );
