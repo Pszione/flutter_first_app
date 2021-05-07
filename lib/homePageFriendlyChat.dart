@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 String _username = 'Pedro Santos'; // here!
 String _appName = 'Friendly Chat';
+bool _isDarkMode = false;
 
 class ChatMessage extends StatelessWidget {
   ChatMessage(
@@ -78,6 +79,16 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appName),
+        actions: [
+          IconButton(
+            padding: EdgeInsets.only(right: 30),
+            icon: Icon(
+              Icons.wb_incandescent,
+              //size: 33,
+            ),
+            onPressed: _pushDarkToggle,
+          )
+        ],
         elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0 : 4,
       ),
       // body holds the list of incoming messages
@@ -209,5 +220,15 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       message.animationController.dispose();
     }
     super.dispose();
+  }
+
+  ThemeMode currentThemeMode() {
+    //return ThemeMode.dark;
+    return _isDarkMode ? ThemeMode.dark : ThemeMode.light;
+  }
+
+  void _pushDarkToggle() {
+    _isDarkMode = !_isDarkMode;
+    print('Dark mode changed!');
   }
 }

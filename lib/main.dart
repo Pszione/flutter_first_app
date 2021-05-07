@@ -23,7 +23,11 @@ class AppFriendlyChat extends StatelessWidget {
       home: ChatScreen(),
       theme: defaultTargetPlatform == TargetPlatform.iOS
           ? kIOSTheme
-          : kDarkMaterialTheme, // kMaterialTheme,
+          : kMaterialTheme,
+      darkTheme: defaultTargetPlatform == TargetPlatform.iOS
+          ? kIOSTheme // ?
+          : kDarkMaterialTheme,
+      //themeMode: currentThemeMode,
     );
   }
 }
@@ -35,7 +39,6 @@ final ThemeData kIOSTheme = ThemeData(
 );
 final ThemeData kMaterialTheme = ThemeData(
   accentColor: Colors.orangeAccent[400],
-  primaryColor: Colors.grey[100],
   primarySwatch: Colors.amber, // 0xFFFFC107
   //primaryColor: Colors.white,
   //accentColor: Colors.amber,
@@ -44,7 +47,7 @@ final ThemeData kMaterialTheme = ThemeData(
 final ThemeData kDarkMaterialTheme = ThemeData.from(
     colorScheme: ColorScheme.highContrastDark(
   surface: Colors.purple[900],
-)); // kMaterialTheme.colorScheme);
+));
 
 class AppGoogleTutorial01 extends StatelessWidget {
   @override
