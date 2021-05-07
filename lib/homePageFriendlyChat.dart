@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 String _username = 'Pedro Santos'; // here!
@@ -70,39 +71,49 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   final _textController = TextEditingController();
   final List<ChatMessage> _messages = [];
   final FocusNode _focusNode = FocusNode();
+  bool _isTexting = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appName),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0 : 4,
       ),
       // body holds the list of incoming messages
-      body: Column(
-        children: [
-          //
-          Flexible(
-            child: ListView.builder(
-              padding: EdgeInsets.all(8),
-              reverse: true, // interesting!
-              itemBuilder: (_, int index) => _messages[index],
-              itemCount: _messages.length,
+      body: Container(
+        decoration: Theme.of(context).platform == TargetPlatform.iOS
+            ? BoxDecoration(
+                border: Border(
+                    top: BorderSide(color: Colors.grey[200] /*!*/)) // nullable
+                )
+            : null,
+        child: Column(
+          children: [
+            //
+            Flexible(
+              child: ListView.builder(
+                padding: EdgeInsets.all(8),
+                reverse: true, // interesting!
+                itemBuilder: (_, int index) => _messages[index],
+                itemCount: _messages.length,
+              ),
             ),
-          ),
-          //
-          Divider(
-            height: 1,
-            thickness: 2,
-            color: Theme.of(context).accentColor,
-          ),
-          //
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
+            //
+            Divider(
+              height: 1,
+              thickness: 2,
+              color: Theme.of(context).accentColor,
             ),
-            child: buildTextComposer(), // here!
-          ),
-        ],
+            //
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+              ),
+              child: buildTextComposer(), // here!
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -120,7 +131,13 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
               Flexible(
                 child: TextField(
                   controller: _textController,
-                  onSubmitted: _handleSubmitted,
+                  onChanged: (String text) {
+                    // enables send button
+                    setState(() {
+                      _isTexting = text.isNotEmpty;
+                    });
+                  },
+                  onSubmitted: _isTexting ? _handleSubmitted : null,
                   decoration: InputDecoration.collapsed(
                     hintText: 'Send a message',
                   ),
@@ -135,15 +152,22 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
               // of the button so that it visually fits better
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 1),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.send_rounded,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    _handleSubmitted(_textController.text);
-                  },
-                ),
+                child: Theme.of(context).platform == TargetPlatform.iOS
+                    ? CupertinoButton(
+                        onPressed: _isTexting
+                            ? () => _handleSubmitted(_textController.text)
+                            : null,
+                        child: Text('Send'),
+                      )
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.send_rounded,
+                          size: 30,
+                        ),
+                        onPressed: _isTexting
+                            ? () => _handleSubmitted(_textController.text)
+                            : null,
+                      ),
               ),
             ],
           )),
@@ -152,6 +176,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   void _handleSubmitted(String text) {
     _textController.clear();
+    setState(() {
+      _isTexting = false;
+    });
+
     var message = ChatMessage(
       text: text,
       animationController: AnimationController(

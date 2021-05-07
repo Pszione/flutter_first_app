@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:english_words/english_words.dart';
 
@@ -19,14 +21,30 @@ class AppFriendlyChat extends StatelessWidget {
     return MaterialApp(
       title: 'Friendly Chat',
       home: ChatScreen(),
-      theme: ThemeData(
-        primarySwatch: Colors.amber, // 0xFFFFC107
-        //primaryColor: Colors.white,
-        //accentColor: Colors.amber,
-      ),
+      theme: defaultTargetPlatform == TargetPlatform.iOS
+          ? kIOSTheme
+          : kDarkMaterialTheme, // kMaterialTheme,
     );
   }
 }
+
+final ThemeData kIOSTheme = ThemeData(
+  primarySwatch: Colors.orange,
+  primaryColor: Colors.grey[100],
+  primaryColorBrightness: Brightness.light,
+);
+final ThemeData kMaterialTheme = ThemeData(
+  accentColor: Colors.orangeAccent[400],
+  primaryColor: Colors.grey[100],
+  primarySwatch: Colors.amber, // 0xFFFFC107
+  //primaryColor: Colors.white,
+  //accentColor: Colors.amber,
+  //primarySwatch: Colors.purple,
+);
+final ThemeData kDarkMaterialTheme = ThemeData.from(
+    colorScheme: ColorScheme.highContrastDark(
+  surface: Colors.purple[900],
+)); // kMaterialTheme.colorScheme);
 
 class AppGoogleTutorial01 extends StatelessWidget {
   @override
