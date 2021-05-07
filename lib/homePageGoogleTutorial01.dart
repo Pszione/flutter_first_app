@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter/services.dart';
 
-//O objeto StatefulWidget é imutável, podendo ser descartado e gerado novamente,
-// mas o objeto State persiste durante o ciclo de vida do widget.
+// The object StatefulWidget is immutable, and can be discarded and then
+// generated again. But the State data will persist through all widget cycle
 class RandomWords extends StatefulWidget {
   const RandomWords({Key key}) : super(key: key);
 

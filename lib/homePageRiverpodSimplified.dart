@@ -17,42 +17,42 @@ class MySecondaryHomePage extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Username'),
-            Consumer(
-              builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
-                // watch is the key part of the builder
-                return watch(userProvider).when(
-                  // .maybeWhen OR .maybeMap
-                  error: (Object error, StackTrace stackTrace) {
-                  // error: (AsyncError<String> value)
-                    return Text('Error');
-                  },
-                  loading: () {
-                    // loading: (AsyncLoading<String> value)
-                    return Text('Loading...'); // CircularProgressIndicator();
-                  },
-                  data: (String value) {
-                    // data: (AsyncData<String> value) then Text(value.value)
-                    return Text('SUCCESS!'); // return Text(value);
-                  },
-                );
-              },
-            ),
+            // Consumer(
+            //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
+            //     watch is the key part of the builder
+            //     return watch(userProvider).when(
+            //       // .maybeWhen OR .maybeMap
+            //       error: (Object error, StackTrace stackTrace) {
+            //       // error: (AsyncError<String> value)
+            //         return Text('Error');
+            //       },
+            //       loading: () {
+            //         // loading: (AsyncLoading<String> value)
+            //         return Text('Loading...'); // CircularProgressIndicator();
+            //       },
+            //       data: (String value) {
+            //         // data: (AsyncData<String> value) then Text(value.value)
+            //         return Text('SUCCESS!'); // return Text(value);
+            //       },
+            //     );
+            //   },
+            // ),
             SizedBox(
               height: 100,
             ),
             Text('state counter',),
-            Consumer(
-              builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
-                return Text('State: ' + watch(counterController).toString());
-              },
-            ),
+            // Consumer(
+            //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
+            //     return Text('State: ' + watch(counterController).toString());
+            //   },
+            // ),
             SizedBox(
               height: 100,
             ),
             Text('Fake Database Counter'),
             // Consumer(
             //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
-            //     // watch is the key part of the builder
+            //     watch is the key part of the builder
             //     return watch(counterAsyncController).when(
             //       data: (int value) {
             //         return Text('AsyncValue: ' + value.toString());
@@ -71,8 +71,8 @@ class MySecondaryHomePage extends StatelessWidget{
             ),
             ElevatedButton(
               onPressed: () {
-                print('clicked!');
-                context.read(counterController).add();
+                print('clicked! add');
+                //context.read(counterController).add();
                 //context.read(counterAsyncController).add();
               },
               child: Text('Add'),
@@ -82,8 +82,8 @@ class MySecondaryHomePage extends StatelessWidget{
             ),
             ElevatedButton(
               onPressed: () {
-                print('clicked');
-                context.read(counterController).subtract();
+                print('clicked! subtract');
+                //context.read(counterController).subtract();
                 //context.read(counterAsyncController).subtract();
               },
               child: Text('Subtract',),

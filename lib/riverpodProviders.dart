@@ -51,6 +51,6 @@ class CounterNotifierAsync extends StateNotifier<AsyncValue<int>>{
   void subtract() async{
     state = AsyncLoading();
     int count = await read(databaseProvider).decrement(); // subclass
-    // state = AsyncData(count);
+    state = AsyncData(count);
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:english_words/english_words.dart';
 
 import 'homePageFirstApp.dart';
 import 'homePageRiverpodSimplified.dart';
@@ -22,10 +21,13 @@ class AppFriendlyChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //return ChangeNotifierProvider<ThemChanger>(
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Friendly Chat',
-      home: ChatScreen(themeChanger: themeChanger,),
+      home: ChatScreen(
+        themeChanger: themeChanger,
+      ),
       theme: themeChanger.getTheme(),
       // theme: defaultTargetPlatform == TargetPlatform.iOS
       //     ? kIOSTheme
@@ -69,19 +71,47 @@ class AppGoogleTutorial01 extends StatelessWidget {
   }
 }
 
+class AppRiverpodTrial extends StatelessWidget {
+  const AppRiverpodTrial({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Riverpod Simplified',
+      home: MySecondaryHomePage(
+        title: 'Riverpod Simplified',
+      ),
+      //
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline1: TextStyle(),
+          headline4: GoogleFonts.lobster(
+            color: Colors.redAccent,
+            letterSpacing: 2,
+          ),
+        ),
+        accentIconTheme: IconThemeData(
+          size: 33,
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        //primarySwatch: Colors.amber, // 0xFFFFC107
+        primaryColor: Color(0xFFFFC107), // let Material create all variants
+        accentColor: Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
+      ),
+    );
+  }
+}
+
 class AppFirstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter First App',
-
+      home: MyHomePage(title: 'Flutter First App'),
+      //
       theme: ThemeData(
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke "hot reload"
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         textTheme: TextTheme(
           headline1: TextStyle(),
           headline4: GoogleFonts.lobster(
@@ -100,12 +130,9 @@ class AppFirstApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         //primarySwatch: Colors.amber, // 0xFFFFC107
         //primarySwatch: MaterialColor(0xFFFFC107, {50: Color(), 100: Color()},),
-        primaryColor:
-            Color(0xFFFFC107), // let Material create all other variants
+        primaryColor: Color(0xFFFFC107), // let Material create all variants
         accentColor: Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
       ),
-      home: MyHomePage(title: 'Flutter First App'),
-      //home: MySecondaryHomePage(title: 'Riverpod Simplified',),
     );
   }
 }
