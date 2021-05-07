@@ -9,6 +9,10 @@ import 'homePageGoogleTutorial01.dart';
 import 'homePageFriendlyChat.dart';
 import 'themeModeChanger.dart';
 
+// Google Cloud API key
+// 1º AIzaSyAk7FhzmdaJLvR4b4a4-WrewVTKXH0J24U
+// 2º AIzaSyBxRpuPy7wKtuH1Zv1E2wdSu6_tZtgDk1I - using this!
+
 void main() {
   runApp(AppFriendlyChat());
 }
