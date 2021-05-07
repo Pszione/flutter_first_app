@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/main.dart';
+import 'package:flutter_first_app/themeModeChanger.dart';
 
 String _username = 'Pedro Santos'; // here!
 String _appName = 'Friendly Chat';
-bool _isDarkMode = false;
 
 class ChatMessage extends StatelessWidget {
   ChatMessage(
       {Key key, @required this.text, @required this.animationController})
-      //@required this.animationFade})
       : super(key: key);
 
   final String text;
@@ -61,7 +61,9 @@ class ChatMessage extends StatelessWidget {
 }
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key key}) : super(key: key);
+  const ChatScreen({Key key, @required this.themeChanger}) : super(key: key);
+
+  final ThemeModeChanger themeChanger;
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -186,8 +188,8 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   }
 
   void _handleSubmitted(String text) {
-    _textController.clear();
     setState(() {
+      _textController.clear();
       _isTexting = false;
     });
 
@@ -222,13 +224,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  ThemeMode currentThemeMode() {
-    //return ThemeMode.dark;
-    return _isDarkMode ? ThemeMode.dark : ThemeMode.light;
-  }
-
   void _pushDarkToggle() {
-    _isDarkMode = !_isDarkMode;
-    print('Dark mode changed!');
+    setState(() {
+      print('Dark mode changed!');
+      themeChanger.toggleThemeMode();
+    });
   }
 }

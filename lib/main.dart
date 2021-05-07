@@ -8,10 +8,14 @@ import 'homePageFirstApp.dart';
 import 'homePageRiverpodSimplified.dart';
 import 'homePageGoogleTutorial01.dart';
 import 'homePageFriendlyChat.dart';
+import 'themeModeChanger.dart';
 
 void main() {
   runApp(AppFriendlyChat());
 }
+
+//
+final ThemeModeChanger themeChanger = ThemeModeChanger();
 
 class AppFriendlyChat extends StatelessWidget {
   const AppFriendlyChat({Key key}) : super(key: key);
@@ -19,35 +23,20 @@ class AppFriendlyChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Friendly Chat',
-      home: ChatScreen(),
-      theme: defaultTargetPlatform == TargetPlatform.iOS
-          ? kIOSTheme
-          : kMaterialTheme,
-      darkTheme: defaultTargetPlatform == TargetPlatform.iOS
-          ? kIOSTheme // ?
-          : kDarkMaterialTheme,
+      home: ChatScreen(themeChanger: themeChanger,),
+      theme: themeChanger.getTheme(),
+      // theme: defaultTargetPlatform == TargetPlatform.iOS
+      //     ? kIOSTheme
+      //     : kMaterialTheme,
+      // darkTheme: defaultTargetPlatform == TargetPlatform.iOS
+      //     ? themeChanger.chatIOSTheme // ?
+      //     : themeChanger.chatDarkMaterialTheme,
       //themeMode: currentThemeMode,
     );
   }
 }
-
-final ThemeData kIOSTheme = ThemeData(
-  primarySwatch: Colors.orange,
-  primaryColor: Colors.grey[100],
-  primaryColorBrightness: Brightness.light,
-);
-final ThemeData kMaterialTheme = ThemeData(
-  accentColor: Colors.orangeAccent[400],
-  primarySwatch: Colors.amber, // 0xFFFFC107
-  //primaryColor: Colors.white,
-  //accentColor: Colors.amber,
-  //primarySwatch: Colors.purple,
-);
-final ThemeData kDarkMaterialTheme = ThemeData.from(
-    colorScheme: ColorScheme.highContrastDark(
-  surface: Colors.purple[900],
-));
 
 class AppGoogleTutorial01 extends StatelessWidget {
   @override
@@ -55,6 +44,7 @@ class AppGoogleTutorial01 extends StatelessWidget {
     //final myWordPair = WordPair.random(); // here!
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Welcome to Flutter',
       home: RandomWords(),
       // home: Scaffold(
@@ -83,6 +73,7 @@ class AppFirstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter First App',
 
       theme: ThemeData(
