@@ -1,6 +1,16 @@
 include: package:lint/analysis_options.yaml
 
+analyzer:
+  errors:
+#    prefer_const_constructors: error
+
 linter:
   rules:
+    # print in debug project is okay
+    avoid_print: false
     # Make constructors the first thing in every class
     sort_constructors_first: true
+    # The new tabs vs. spaces. Choose wisely
+    prefer_single_quotes: true
+    # Blindly follow the Flutter code style, which prefers types everywhere
+    always_specify_types: true
