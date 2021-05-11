@@ -3,15 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'homePageFirstApp.dart';
-import 'homePageRiverpodSimplified.dart';
-import 'homePageGoogleTutorial01.dart';
-import 'homePageFriendlyChat.dart';
-import 'themeModeChanger.dart';
-
-// Google Cloud API key
-// 1º AIzaSyAk7FhzmdaJLvR4b4a4-WrewVTKXH0J24U
-// 2º AIzaSyBxRpuPy7wKtuH1Zv1E2wdSu6_tZtgDk1I - using this!
+import 'homepage_first_app.dart';
+import 'homepage_riverpod_simplified.dart';
+import 'homepage_google_tutorial01.dart';
+import 'homepage_friendly_chat.dart';
+import 'theme_mode_changer.dart';
 
 void main() {
   runApp(AppFriendlyChat());
