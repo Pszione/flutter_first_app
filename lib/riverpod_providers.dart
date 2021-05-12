@@ -4,57 +4,60 @@ import 'package:state_notifier/state_notifier.dart';
 
 // static user state for the app
 // we could use a StateNotifierProvider
-final userProvider = FutureProvider<String>((ref) async {
+final FutureProvider<String> userProvider =
+    FutureProvider<String>((ProviderReference ref) async {
   return ref.read(databaseProvider).getUserData();
 });
 
 // static counter state notifier for the app
 // Controller because you can actually control the data within here
-final counterController =
-    StateNotifierProvider<CounterNotifier, dynamic>((ref) => CounterNotifier());
+// TODO: can not be Dynamic
+final StateNotifierProvider<CounterNotifier, dynamic> counterController =
+    StateNotifierProvider<CounterNotifier, dynamic>(
+        (ProviderReference ref) => CounterNotifier());
 
 class CounterNotifier extends StateNotifier<int> {
   CounterNotifier() : super(0);
 
   int add() {
-    state = state + 1; // subclass
-    return state;
+    return state = state + 1; // subclass
   }
 
   int subtract() {
-    state = state - 1; // subclass
-    return state;
+    return state = state - 1; // subclass
   }
 }
 
 // async state notifier provider (for state that doesn't change in real time)
-final counterAsyncController =
+final StateNotifierProvider<CounterNotifierAsync, AsyncValue<int>>
+    counterAsyncController =
     StateNotifierProvider<CounterNotifierAsync, AsyncValue<int>>(
-        (ref) => CounterNotifierAsync(ref.read /*(databaseProvider)*/));
+        (ProviderReference ref) =>
+            CounterNotifierAsync(ref.read /*(databaseProvider)*/));
 
 class CounterNotifierAsync extends StateNotifier<AsyncValue<int>> {
-  CounterNotifierAsync(this.read) : super(AsyncLoading()) {
+  CounterNotifierAsync(this.read) : super(const AsyncLoading<int>()) {
     _init();
   }
 
   final Reader read;
 
-  void _init() async {
+  Future<void> _init() async {
     await read(databaseProvider).initDatabase();
-    state = AsyncData(0);
+    state = const AsyncData<int>(0);
   }
 
-  void add() async {
-    state =
-        AsyncLoading(); // we are in a loading state until we get our response
-    int count = await read(databaseProvider).increment(); // subclass
-    state = AsyncData(count);
+  Future<void> add() async {
+    state = const AsyncLoading<
+        int>(); // we are in a loading state until we get our response
+    final int count = await read(databaseProvider).increment(); // subclass
+    state = AsyncData<int>(count);
     // return state;
   }
 
-  void subtract() async {
-    state = AsyncLoading();
-    int count = await read(databaseProvider).decrement(); // subclass
-    state = AsyncData(count);
+  Future<void> subtract() async {
+    state = const AsyncLoading<int>();
+    final int count = await read(databaseProvider).decrement(); // subclass
+    state = AsyncData<int>(count);
   }
 }

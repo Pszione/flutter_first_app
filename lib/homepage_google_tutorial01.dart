@@ -11,9 +11,9 @@ class RandomWords extends StatefulWidget {
 }
 
 class _RandomWordsState extends State<RandomWords> {
-  final _suggestions = <WordPair>[];
-  final _saved = <WordPair>{}; // and empty list
-  final _biggestFont = const TextStyle(fontSize: 20);
+  final List<WordPair> _suggestions = <WordPair>[];
+  final Set<WordPair> _saved = <WordPair>{}; // and empty list
+  final TextStyle _biggestFont = const TextStyle(fontSize: 20);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,11 @@ class _RandomWordsState extends State<RandomWords> {
     // );
     return Scaffold(
       appBar: AppBar(
-        title: Text('Startup Name generator'),
-        actions: [
+        title: const Text('Startup Name generator'),
+        actions: <Widget>[
           IconButton(
-            padding: EdgeInsets.only(right: 30),
-            icon: Icon(
+            padding: const EdgeInsets.only(right: 30),
+            icon: const Icon(
               Icons.playlist_add_check_rounded,
               size: 33,
             ),
@@ -44,7 +44,7 @@ class _RandomWordsState extends State<RandomWords> {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemBuilder: (BuildContext context, int i) {
-        if (i.isOdd) return Divider(); // 1px
+        if (i.isOdd) return const Divider(); // 1px
 
         // The syntax "i ~/ 2" divides i by 2 and returns an integer result.
         // For example: 1, 2, 3, 4, 5 becomes 0, 1, 1, 2, 2.
@@ -61,7 +61,7 @@ class _RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(WordPair wordPair, int index) {
-    final alreadySaved = _saved.contains(wordPair);
+    final bool alreadySaved = _saved.contains(wordPair);
 
     return ListTile(
       title: Text(
@@ -94,13 +94,13 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
-  _pushSaved() {
+  void _pushSaved() {
     Navigator.of(context).push(
       // navigator works as a stack pile of widgets - push and pop
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
           //
-          final tiles = _saved.map(
+          final Iterable<ListTile> tiles = _saved.map(
             (WordPair wordPair) {
               return ListTile(
                 title: Text(
@@ -111,14 +111,14 @@ class _RandomWordsState extends State<RandomWords> {
             },
           );
           //
-          final divided = ListTile.divideTiles(
+          final List<Widget> divided = ListTile.divideTiles(
             context: context,
             tiles: tiles,
           ).toList();
           // rebuild widget
           return Scaffold(
             appBar: AppBar(
-              title: Text('Saved Suggestions'),
+              title: const Text('Saved Suggestions'),
             ),
             body: ListView(
               children: divided,

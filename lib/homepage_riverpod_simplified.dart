@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+//import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:flutter_first_app/riverpod_providers.dart';
+//import 'package:flutter_first_app/riverpod_providers.dart';
 
 class MySecondaryHomePage extends StatelessWidget {
-  MySecondaryHomePage({this.title});
+  const MySecondaryHomePage({this.title});
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Riverpod Simplified')),
+      appBar: AppBar(title: const Text('Riverpod Simplified')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Username'),
+          children: <Widget>[
+            const Text('Username'),
             // Consumer(
             //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
             //     watch is the key part of the builder
@@ -37,10 +37,10 @@ class MySecondaryHomePage extends StatelessWidget {
             //     );
             //   },
             // ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            Text(
+            const Text(
               'state counter',
             ),
             // Consumer(
@@ -48,10 +48,10 @@ class MySecondaryHomePage extends StatelessWidget {
             //     return Text('State: ' + watch(counterController).toString());
             //   },
             // ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            Text('Fake Database Counter'),
+            const Text('Fake Database Counter'),
             // Consumer(
             //   builder: (BuildContext context, T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
             //     watch is the key part of the builder
@@ -68,7 +68,7 @@ class MySecondaryHomePage extends StatelessWidget {
             //     );
             //   },
             // ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             ElevatedButton(
@@ -77,9 +77,9 @@ class MySecondaryHomePage extends StatelessWidget {
                 //context.read(counterController).add();
                 //context.read(counterAsyncController).add();
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             ElevatedButton(
@@ -88,18 +88,18 @@ class MySecondaryHomePage extends StatelessWidget {
                 //context.read(counterController).subtract();
                 //context.read(counterAsyncController).subtract();
               },
-              child: Text(
+              child: const Text(
                 'Subtract',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            TaskItem(
+            const TaskItem(
               label: 'Be handsome today!',
               checkValue: false,
             ),
-            TaskItem(
+            const TaskItem(
               label: 'Study hard to buy that Porsche!',
               checkValue: true,
             ),
@@ -120,7 +120,7 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Checkbox(onChanged: null, value: checkValue),
         Text(label),
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Like tapped $_counter times!',
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Text(

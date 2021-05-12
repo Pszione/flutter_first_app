@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 //import '../services/storage_manager.dart';
 
 class ThemeModeChanger {
-  bool _isDarkMode = false;
-  ThemeData _themeData;
-  ThemeData getTheme() => _themeData;
-
   ThemeModeChanger() {
-    _isDarkMode ? _themeData = chatDarkMaterialTheme : _themeData = chatMaterialTheme;
+    _isDarkMode
+        ? _themeData = chatDarkMaterialTheme
+        : _themeData = chatMaterialTheme;
     //   StorageManager.readData('themeMode').then((value) {
     //     print('value read from storage: ' + value.toString());
     //     var themeMode = value ?? 'light';
@@ -21,23 +19,27 @@ class ThemeModeChanger {
     //   });
   }
 
-  final darkTheme = ThemeData(
+  bool _isDarkMode = false;
+  ThemeData _themeData;
+  ThemeData getTheme() => _themeData;
+
+  final ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Colors.black,
     brightness: Brightness.dark,
     backgroundColor: const Color(0xFF212121),
     accentColor: Colors.white,
-    accentIconTheme: IconThemeData(color: Colors.black),
+    accentIconTheme: const IconThemeData(color: Colors.black),
     dividerColor: Colors.black12,
   );
 
-  final lightTheme = ThemeData(
+  final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Colors.white,
     brightness: Brightness.light,
     backgroundColor: const Color(0xFFE5E5E5),
     accentColor: Colors.black,
-    accentIconTheme: IconThemeData(color: Colors.white),
+    accentIconTheme: const IconThemeData(color: Colors.white),
     dividerColor: Colors.white54,
   );
 
@@ -45,19 +47,22 @@ class ThemeModeChanger {
   //      ? chatIOSTheme
   //      : chatMaterialTheme;
 
-  void toggleThemeMode() { //async {
+  void toggleThemeMode() {
+    //async {
     _isDarkMode = !_isDarkMode;
     _isDarkMode ? setLightMode() : setDarkMode();
   }
 
-  void setDarkMode() { //async {
+  void setDarkMode() {
+    //async {
     //_themeData = darkTheme;
     _themeData = chatDarkMaterialTheme;
     //StorageManager.saveData('themeMode', 'dark');
     //notifyListeners();
   }
 
-  void setLightMode() { //async {
+  void setLightMode() {
+    //async {
     //_themeData = lightTheme;
     _themeData = chatMaterialTheme;
     //StorageManager.saveData('themeMode', 'light');

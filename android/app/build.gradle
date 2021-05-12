@@ -25,6 +25,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+plugins {
+    id 'com.google.secrets_gradle_plugin' version '0.5'
+    // id("com.google.secrets_gradle_plugin") version "0.6"
+}
+
 android {
     compileSdkVersion 30
 
@@ -57,3 +62,14 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+//secrets {
+//    // Optionally specify a different file name containing your secrets.
+//    // The plugin defaults to "local.properties"
+//    propertiesFileName = "secrets.properties"
+//    defaultPropertiesFileName = "secrets.defaults.properties"
+//
+//    // Add keys that the plugin should ignore from the properties file
+//    ignoreList.add("keyToIgnore")
+//    ignoreList.add("ignore*")
+//}

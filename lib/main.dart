@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'homepage_first_app.dart';
-import 'homepage_riverpod_simplified.dart';
-import 'homepage_google_tutorial01.dart';
 import 'homepage_friendly_chat.dart';
+import 'homepage_google_tutorial01.dart';
+import 'homepage_riverpod_simplified.dart';
 import 'theme_mode_changer.dart';
 
 void main() {
@@ -85,19 +85,20 @@ class AppRiverpodTrial extends StatelessWidget {
       //
       theme: ThemeData(
         textTheme: TextTheme(
-          headline1: TextStyle(),
+          headline1: const TextStyle(),
           headline4: GoogleFonts.lobster(
             color: Colors.redAccent,
             letterSpacing: 2,
           ),
         ),
-        accentIconTheme: IconThemeData(
+        accentIconTheme: const IconThemeData(
           size: 33,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         //primarySwatch: Colors.amber, // 0xFFFFC107
-        primaryColor: Color(0xFFFFC107), // let Material create all variants
-        accentColor: Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
+        primaryColor:
+            const Color(0xFFFFC107), // let Material create all variants
+        accentColor: const Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
       ),
     );
   }
@@ -113,25 +114,26 @@ class AppFirstApp extends StatelessWidget {
       //
       theme: ThemeData(
         textTheme: TextTheme(
-          headline1: TextStyle(),
+          headline1: const TextStyle(),
           headline4: GoogleFonts.lobster(
             color: Colors.redAccent,
             letterSpacing: 2,
           ),
-          bodyText2: TextStyle(fontSize: 18),
-          subtitle1: TextStyle(
+          bodyText2: const TextStyle(fontSize: 18),
+          subtitle1: const TextStyle(
             fontStyle: FontStyle.italic,
             color: Color(0xFF00FF00),
           ),
         ),
-        accentIconTheme: IconThemeData(
+        accentIconTheme: const IconThemeData(
           size: 33,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         //primarySwatch: Colors.amber, // 0xFFFFC107
         //primarySwatch: MaterialColor(0xFFFFC107, {50: Color(), 100: Color()},),
-        primaryColor: Color(0xFFFFC107), // let Material create all variants
-        accentColor: Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
+        primaryColor:
+            const Color(0xFFFFC107), // let Material create all variants
+        accentColor: const Color(0xFFFFFFFF), // 0xFF + copy HEX then (688e26)
       ),
     );
   }

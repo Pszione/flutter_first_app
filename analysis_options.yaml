@@ -8,9 +8,17 @@ linter:
   rules:
     # print in debug project is okay
     avoid_print: false
+    # DON'T use length to see if a collection is empty
+    prefer_is_empty: true
     # Make constructors the first thing in every class
     sort_constructors_first: true
+    # Container is a heavier Widget, and SizedBox has a const constructor.
+    sized_box_for_whitespace: true
+    # use ; instead of {} for empty constructor bodies
+    empty_constructor_bodies: true
     # The new tabs vs. spaces. Choose wisely
     prefer_single_quotes: true
     # Blindly follow the Flutter code style, which prefers types everywhere
     always_specify_types: true
+    # const for instantiating constant widget constructors, but not everywhere
+    prefer_const_constructors: false

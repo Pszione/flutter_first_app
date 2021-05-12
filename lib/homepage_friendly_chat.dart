@@ -7,7 +7,7 @@ String _username = 'Pedro Santos'; // here!
 String _appName = 'Friendly Chat';
 
 class ChatMessage extends StatelessWidget {
-  ChatMessage(
+  const ChatMessage(
       {Key key, @required this.text, @required this.animationController})
       : super(key: key);
 
@@ -20,15 +20,13 @@ class ChatMessage extends StatelessWidget {
     //return FadeTransition(
     return SizeTransition(
       sizeFactor: CurvedAnimation(
-          parent: animationController,
-          curve: Curves.easeInOutBack), // Curves.easeOut),
-      axisAlignment: 0,
+          parent: animationController, curve: Curves.easeInOutBack),
       //
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             //
             Container(
               margin: const EdgeInsets.only(right: 16),
@@ -41,13 +39,13 @@ class ChatMessage extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     _username,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 5),
+                    margin: const EdgeInsets.only(top: 5),
                     child: Text(text), // here!
                   )
                 ],
@@ -71,8 +69,8 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   //with SingleTickerProviderStateMixin {
-  final _textController = TextEditingController();
-  final List<ChatMessage> _messages = [];
+  final TextEditingController _textController = TextEditingController();
+  final List<ChatMessage> _messages = <ChatMessage>[];
   final FocusNode _focusNode = FocusNode();
   bool _isTexting = false;
 
@@ -81,10 +79,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appName),
-        actions: [
+        actions: <Widget>[
           IconButton(
-            padding: EdgeInsets.only(right: 30),
-            icon: Icon(
+            padding: const EdgeInsets.only(right: 30),
+            icon: const Icon(
               Icons.wb_incandescent,
               //size: 33,
             ),
@@ -102,11 +100,11 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                 )
             : null,
         child: Column(
-          children: [
+          children: <Widget>[
             //
             Flexible(
               child: ListView.builder(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 reverse: true, // interesting!
                 itemBuilder: (_, int index) => _messages[index],
                 itemCount: _messages.length,
@@ -136,10 +134,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       data:
           IconThemeData(color: Theme.of(context).accentColor), // IconThemeData
       child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           // Using a Row allows you to place the Send button adjacent to the input field.
           child: Row(
-            children: [
+            children: <Widget>[
               //
               Flexible(
                 child: TextField(
@@ -151,7 +149,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                     });
                   },
                   onSubmitted: _isTexting ? _handleSubmitted : null,
-                  decoration: InputDecoration.collapsed(
+                  decoration: const InputDecoration.collapsed(
                     hintText: 'Send a message',
                   ),
                   focusNode: _focusNode,
@@ -164,13 +162,13 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
               // IconButton inside a Container lets you customize the margin spacing
               // of the button so that it visually fits better
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 1),
+                margin: const EdgeInsets.symmetric(horizontal: 1),
                 child: Theme.of(context).platform == TargetPlatform.iOS
                     ? CupertinoButton(
                         onPressed: _isTexting
                             ? () => _handleSubmitted(_textController.text)
                             : null,
-                        child: Text('Send'),
+                        child: const Text('Send'),
                       )
                     : IconButton(
                         icon: const Icon(
@@ -193,7 +191,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       _isTexting = false;
     });
 
-    var message = ChatMessage(
+    final ChatMessage message = ChatMessage(
       text: text,
       animationController: AnimationController(
         duration: const Duration(milliseconds: 500), // too long duration!
@@ -218,7 +216,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   void dispose() {
     // It's good practice to dispose of your animation controllers
     // to free up your resources when they are no longer needed.
-    for (var message in _messages) {
+    for (final ChatMessage message in _messages) {
       message.animationController.dispose();
     }
     super.dispose();
