@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/main.dart';
-import 'package:flutter_first_app/theme_mode_changer.dart';
+import 'package:flutter_first_app/components/theme_mode_changer.dart';
 
 String _username = 'Pedro Santos'; // here!
 String _appName = 'Friendly Chat';

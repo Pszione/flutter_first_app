@@ -5,9 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'homepage_first_app.dart';
 import 'homepage_friendly_chat.dart';
+import 'homepage_google_maps_tutorial.dart';
 import 'homepage_google_tutorial01.dart';
 import 'homepage_riverpod_simplified.dart';
-import 'theme_mode_changer.dart';
+import 'components/theme_mode_changer.dart';
 
 void main() {
   runApp(AppFriendlyChat());
