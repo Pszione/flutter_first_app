@@ -1,3 +1,7 @@
+//plugins {
+//    id 'com.google.secrets_gradle_plugin' version '0.6'
+//}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -7,9 +11,6 @@ if (localPropertiesFile.exists()) {
 }
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
@@ -24,11 +25,6 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
-plugins {
-    id 'com.google.secrets_gradle_plugin' version '0.5'
-    // id("com.google.secrets_gradle_plugin") version "0.6"
-}
 
 android {
     compileSdkVersion 30
