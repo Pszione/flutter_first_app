@@ -7,11 +7,12 @@ class SizeConfig {
   static double defaultSize;
   static Orientation orientation;
 
-  void init(BuildContext context) {
+  SizeConfig init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
     orientation = _mediaQueryData.orientation;
+    return this;
   }
 
   double getProportionateScreenWidth(double inputWidth) {

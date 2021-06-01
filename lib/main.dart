@@ -1,21 +1,45 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_first_app/constants_shop.dart';
+import 'package:flutter_first_app/shop_ecommerce/homepage_shop_splashscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'components/theme_mode_changer.dart';
 import 'homepage_first_app.dart';
 import 'homepage_friendly_chat.dart';
-import 'homepage_google_maps_tutorial.dart';
 import 'homepage_google_tutorial01.dart';
 import 'homepage_riverpod_simplified.dart';
-import 'components/theme_mode_changer.dart';
+import 'shop_ecommerce/homepage_shop_splashscreen.dart';
 
 void main() {
-  runApp(AppFriendlyChat());
+  runApp(AppShopEcommerce());
 }
 
 //
 final ThemeModeChanger themeChanger = ThemeModeChanger();
+
+class AppShopEcommerce extends StatelessWidget {
+  const AppShopEcommerce({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Shop Ecommerce',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Muli',
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kTextColor),
+          bodyText2: TextStyle(color: kTextColor),
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: ShopSplashScreen(),
+    );
+  }
+}
 
 class AppFriendlyChat extends StatelessWidget {
   const AppFriendlyChat({Key key}) : super(key: key);
