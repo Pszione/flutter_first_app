@@ -63,6 +63,7 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                       splashesData.length,
                       (int index) => buildPagesDot(index: index),
@@ -77,11 +78,12 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildPagesDot({int index}) {
-    return Container(
-      height: 6,
+  AnimatedContainer buildPagesDot({int index}) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
       // Different width for the selected dot
       width: currentPage == index ? 20 : 6,
+      height: 6,
       // Margin only at right - acts like a spacer
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
