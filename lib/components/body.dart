@@ -24,27 +24,10 @@ class _BodyState extends State<Body> {
               // child: Container(
               //   color: Colors.black,
               // ),
-              child: Column(
-                children: <Widget>[
-                  Spacer(),
-                  Text(
-                    'ECOMMERCE',
-                    style: TextStyle(
-                      fontSize: _sizes.getProportionateScreenWidth(36),
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text("Welcome to your Ecommerce, let's shop!"),
-                  Spacer(
-                    flex: 2,
-                  ),
-                  Image.asset(
-                    'assets/images/splash_1.png',
-                    width: _sizes.getProportionateScreenWidth(235),
-                    height: _sizes.getProportionateScreenHeight(265),
-                  ),
-                ],
+              child: SplashContent(
+                sizes: _sizes,
+                subTitle: "Welcome to your Ecommerce, let's shop!",
+                image: 'assets/images/splash_1.png',
               ),
             ),
             Expanded(
@@ -54,6 +37,45 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SplashContent extends StatelessWidget {
+  const SplashContent({
+    Key key,
+    @required SizeConfig sizes,
+    this.subTitle,
+    this.image,
+  })  : _sizes = sizes,
+        super(key: key);
+
+  final SizeConfig _sizes;
+  final String subTitle, image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Spacer(),
+        Text(
+          'ECOMMERCE',
+          style: TextStyle(
+            fontSize: _sizes.getProportionateScreenWidth(36),
+            color: kPrimaryColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(subTitle),
+        Spacer(
+          flex: 2,
+        ),
+        Image.asset(
+          image,
+          width: _sizes.getProportionateScreenWidth(235),
+          height: _sizes.getProportionateScreenHeight(265),
+        ),
+      ],
     );
   }
 }
