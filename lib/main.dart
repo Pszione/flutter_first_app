@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/shop_ecommerce/homepage_shop_splashscreen.dart';
+import 'package:flutter_first_app/shop_ecommerce/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'components/theme_mode_changer.dart';
@@ -36,7 +37,9 @@ class AppShopEcommerce extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ShopSplashScreen(),
+      //home: ShopSplashScreen(),
+      initialRoute: ShopSplashScreen.routeName,
+      routes: routes, // ?? ShopSplashScreen(),
     );
   }
 }
