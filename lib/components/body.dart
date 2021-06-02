@@ -60,16 +60,39 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      splashesData.length,
-                      (int index) => buildPagesDot(index: index),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: _sizes.getProportionateScreenWidth(20),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashesData.length,
+                        (int index) => buildPagesDot(index: index),
+                      ),
                     ),
-                  )
-                ],
+                    SizedBox(
+                      width: double.infinity,
+                      height: _sizes.getProportionateScreenHeight(56),
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        color: kPrimaryColor,
+                        //style: ButtonStyle(backgroundColor: MaterialStateProperty<kPrimaryColor>),
+                        onPressed: () {},
+                        child: Text(
+                          'Continue',
+                          style: TextStyle(
+                            fontSize: _sizes.getProportionateScreenWidth(18),
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
