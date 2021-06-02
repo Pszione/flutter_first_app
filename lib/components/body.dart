@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/size_config.dart';
+
+import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
   const Body({Key key}) : super(key: key);
@@ -14,6 +15,21 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
+    final List<Map<String, String>> splashesData = <Map<String, String>>[
+      <String, String>{
+        'subtitle': "Welcome to your Ecommerce, let's shop!",
+        'image': 'assets/images/splash_1.png'
+      },
+      <String, String>{
+        'subtitle':
+            'We help people connect with stores \naround United States of America',
+        'image': 'assets/images/splash_2.png'
+      },
+      <String, String>{
+        'subtitle': 'We show the easy way to shop. \nJust stay at home with us',
+        'image': 'assets/images/splash_3.png'
+      },
+    ];
     return SafeArea(
       child: SizedBox(
         // What double.infinity means?
@@ -21,18 +37,20 @@ class _BodyState extends State<Body> {
         child: Column(
           children: <Widget>[
             Expanded(
-                flex: 3,
-                // child: Container(
-                //   color: Colors.black,
-                // ),
-                child: PageView.builder(
-                  itemBuilder: (BuildContext context, int index) =>
-                      SplashContent(
-                    sizes: _sizes,
-                    subTitle: "Welcome to your Ecommerce, let's shop!",
-                    image: 'assets/images/splash_1.png',
-                  ),
-                )),
+              flex: 3,
+              // child: Container(
+              //   color: Colors.black,
+              // ),
+              child: PageView.builder(
+                itemCount: splashesData.length,
+                itemBuilder: (BuildContext context, int index) => SplashContent(
+                  sizes: _sizes,
+                  // checking array for null safety
+                  subtitle: splashesData[index]['subtitle'] ?? 'Error',
+                  image: splashesData[index]['image'] ?? 'Error',
+                ),
+              ),
+            ),
             Expanded(
               flex: 2,
               child: SizedBox(),
@@ -40,45 +58,6 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key key,
-    @required SizeConfig sizes,
-    this.subTitle,
-    this.image,
-  })  : _sizes = sizes,
-        super(key: key);
-
-  final SizeConfig _sizes;
-  final String subTitle, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Spacer(),
-        Text(
-          'ECOMMERCE',
-          style: TextStyle(
-            fontSize: _sizes.getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(subTitle),
-        Spacer(
-          flex: 2,
-        ),
-        Image.asset(
-          image,
-          width: _sizes.getProportionateScreenWidth(235),
-          height: _sizes.getProportionateScreenHeight(265),
-        ),
-      ],
     );
   }
 }
