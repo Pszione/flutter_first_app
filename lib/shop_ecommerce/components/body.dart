@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/size_config.dart';
 
-import '../components/splash_content.dart';
+// This is best practice
+import 'default_big_button.dart';
+import 'splash_content.dart';
 
 class Body extends StatefulWidget {
   const Body({Key key}) : super(key: key);
@@ -66,6 +68,7 @@ class _BodyState extends State<Body> {
                 ),
                 child: Column(
                   children: <Widget>[
+                    Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
@@ -73,24 +76,13 @@ class _BodyState extends State<Body> {
                         (int index) => buildPagesDot(index: index),
                       ),
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: _sizes.getProportionateScreenHeight(56),
-                      child: FlatButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        color: kPrimaryColor,
-                        //style: ButtonStyle(backgroundColor: MaterialStateProperty<kPrimaryColor>),
-                        onPressed: () {},
-                        child: Text(
-                          'Continue',
-                          style: TextStyle(
-                            fontSize: _sizes.getProportionateScreenWidth(18),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                    Spacer(flex: 3),
+                    DefaultBigButton(
+                      sizes: _sizes,
+                      text: 'Continue',
+                      onPress: () {},
                     ),
+                    Spacer(),
                   ],
                 ),
               ),

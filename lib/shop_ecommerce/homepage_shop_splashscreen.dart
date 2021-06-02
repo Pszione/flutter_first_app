@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_app/components/body.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/body.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 class ShopSplashScreen extends StatelessWidget {
