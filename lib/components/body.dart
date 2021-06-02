@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/size_config.dart';
@@ -20,16 +21,18 @@ class _BodyState extends State<Body> {
         child: Column(
           children: <Widget>[
             Expanded(
-              flex: 3,
-              // child: Container(
-              //   color: Colors.black,
-              // ),
-              child: SplashContent(
-                sizes: _sizes,
-                subTitle: "Welcome to your Ecommerce, let's shop!",
-                image: 'assets/images/splash_1.png',
-              ),
-            ),
+                flex: 3,
+                // child: Container(
+                //   color: Colors.black,
+                // ),
+                child: PageView.builder(
+                  itemBuilder: (BuildContext context, int index) =>
+                      SplashContent(
+                    sizes: _sizes,
+                    subTitle: "Welcome to your Ecommerce, let's shop!",
+                    image: 'assets/images/splash_1.png',
+                  ),
+                )),
             Expanded(
               flex: 2,
               child: SizedBox(),
