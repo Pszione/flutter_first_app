@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 import '../components/splash_content.dart';
@@ -12,6 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
@@ -49,14 +51,42 @@ class _BodyState extends State<Body> {
                   subtitle: splashesData[index]['subtitle'] ?? 'Error',
                   image: splashesData[index]['image'] ?? 'Error',
                 ),
+                onPageChanged: (int value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
               ),
             ),
             Expanded(
               flex: 2,
-              child: SizedBox(),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: List.generate(
+                      splashesData.length,
+                      (int index) => buildPagesDot(index: index),
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Container buildPagesDot({int index}) {
+    return Container(
+      height: 6,
+      // Different width for the selected dot
+      width: currentPage == index ? 20 : 6,
+      // Margin only at right - acts like a spacer
+      margin: EdgeInsets.only(right: 5),
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
       ),
     );
   }
