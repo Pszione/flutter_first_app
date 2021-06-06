@@ -56,8 +56,23 @@ class _SignFormsState extends State<SignForms> {
             decoration: InputDecoration(
               labelText: 'Email',
               hintText: 'Enter our email',
+              //
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+              //
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
