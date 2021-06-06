@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/constants_shop.dart';
+import 'package:flutter_first_app/shop_ecommerce/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 // This is best practice
@@ -80,7 +81,10 @@ class _BodyState extends State<Body> {
                     DefaultBigButton(
                       sizes: _sizes,
                       text: 'Continue',
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.pushNamed(
+                            context, ShopSignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
