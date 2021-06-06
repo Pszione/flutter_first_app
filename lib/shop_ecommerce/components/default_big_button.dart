@@ -21,10 +21,13 @@ class DefaultBigButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       height: _sizes.getProportionateScreenHeight(56),
-      child: FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        color: kPrimaryColor,
-        //style: ButtonStyle(backgroundColor: MaterialStateProperty<kPrimaryColor>),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          // primary: Colors.white, // in fact, this is clicked color
+          backgroundColor: kPrimaryColor,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        ),
         onPressed: () => onPress,
         child: Text(
           text,
