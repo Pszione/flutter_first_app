@@ -27,6 +27,8 @@ class DefaultBigButton extends StatelessWidget {
           backgroundColor: kPrimaryColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          //elevation: 5,
+          //side: BorderSide(color: Colors.black, width: 5),
         ),
         onPressed: () => onPress,
         child: Text(

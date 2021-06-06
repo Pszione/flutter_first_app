@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_first_app/constants_shop.dart';
-import 'package:flutter_first_app/shop_ecommerce/homepage_shop_splashscreen.dart';
 import 'package:flutter_first_app/shop_ecommerce/routes.dart';
+import 'package:flutter_first_app/shop_ecommerce/shop_sign_in_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/shop_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'components/theme_mode_changer.dart';
@@ -28,18 +28,11 @@ class AppShopEcommerce extends StatelessWidget {
     return MaterialApp(
       title: 'Shop Ecommerce',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Muli',
-        textTheme: TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: shopAppTheme(),
       //home: ShopSplashScreen(),
-      initialRoute: ShopSplashScreen.routeName,
-      routes: routes, // ?? ShopSplashScreen(),
+      //initialRoute: ShopSplashScreen.routeName,
+      initialRoute: ShopSignInScreen.routeName,
+      routes: routes,
     );
   }
 }

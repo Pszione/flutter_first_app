@@ -5,6 +5,10 @@ class ShopSignInScreen extends StatelessWidget {
   static String routeName = '/sign_in';
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('Sign In')),
+      ),
+    );
   }
 }
