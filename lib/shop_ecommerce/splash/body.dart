@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/constants_shop.dart';
-import 'package:flutter_first_app/shop_ecommerce/shop_sign_in_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 // This is best practice
-import 'default_big_button.dart';
-import 'splash_content.dart';
+import '../components/default_big_button.dart';
+import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
   const Body({Key key}) : super(key: key);

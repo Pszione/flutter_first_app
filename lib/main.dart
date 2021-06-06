@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first_app/shop_ecommerce/routes.dart';
-import 'package:flutter_first_app/shop_ecommerce/shop_sign_in_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/shop_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,7 +11,7 @@ import 'homepage_first_app.dart';
 import 'homepage_friendly_chat.dart';
 import 'homepage_google_tutorial01.dart';
 import 'homepage_riverpod_simplified.dart';
-import 'shop_ecommerce/homepage_shop_splashscreen.dart';
+import 'shop_ecommerce/splash/homepage_shop_splashscreen.dart';
 
 void main() {
   runApp(AppShopEcommerce());
