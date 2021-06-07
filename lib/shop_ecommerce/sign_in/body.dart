@@ -51,10 +51,13 @@ class SignForms extends StatefulWidget {
 }
 
 class _SignFormsState extends State<SignForms> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<String> errors = <String>[];
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
     return Form(
+      key: _formKey,
       child: Column(
         children: <Widget>[
           buildEmailFormField(_sizes),
@@ -74,6 +77,14 @@ class _SignFormsState extends State<SignForms> {
   TextFormField buildEmailFormField(SizeConfig _sizes) {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
+      validator: (String value) {
+        if (value.isEmpty) {
+          setState(() {
+            errors.add('Please enter your email');
+          });
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: 'Email',
         hintText: 'Enter your email',
