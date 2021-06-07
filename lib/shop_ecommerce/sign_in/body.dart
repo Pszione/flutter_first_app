@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/size_config.dart';
@@ -51,6 +52,7 @@ class SignForms extends StatefulWidget {
 class _SignFormsState extends State<SignForms> {
   @override
   Widget build(BuildContext context) {
+    final SizeConfig _sizes = SizeConfig().init(context);
     return Form(
       child: Column(
         children: <Widget>[
@@ -59,6 +61,10 @@ class _SignFormsState extends State<SignForms> {
               labelText: 'Email',
               hintText: 'Enter your email',
               //floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: CustomSuffixIcon(
+                sizes: _sizes,
+                svgIcon: 'assets/icons/Mail.svg',
+              ),
             ),
           ),
         ],
