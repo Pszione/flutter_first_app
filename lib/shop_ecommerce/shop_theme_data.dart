@@ -8,6 +8,7 @@ ThemeData shopAppTheme() {
     scaffoldBackgroundColor: Colors.white,
     fontFamily: 'Muli',
     textTheme: shopTextTheme(),
+    inputDecorationTheme: shopInputDecorationTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }
@@ -28,5 +29,22 @@ TextTheme shopTextTheme() {
   return TextTheme(
     bodyText1: TextStyle(color: kTextColor),
     bodyText2: TextStyle(color: kTextColor),
+  );
+}
+
+InputDecorationTheme shopInputDecorationTheme() {
+  final OutlineInputBorder outlineInputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(28),
+    borderSide: BorderSide(color: kTextColor),
+    gapPadding: 10,
+  );
+  return InputDecorationTheme(
+    // floating will work if set here?
+    floatingLabelBehavior: FloatingLabelBehavior.always,
+    contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+    //
+    enabledBorder: outlineInputBorder,
+    focusedBorder: outlineInputBorder,
+    border: outlineInputBorder,
   );
 }

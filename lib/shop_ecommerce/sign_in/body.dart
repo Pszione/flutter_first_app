@@ -17,7 +17,7 @@ class Body extends StatelessWidget {
             horizontal: _sizes.getProportionateScreenWidth(20),
           ),
           child: Column(
-            children: [
+            children: <Widget>[
               Text(
                 'Welcome Back',
                 style: TextStyle(
@@ -30,7 +30,9 @@ class Body extends StatelessWidget {
                 'Sign in with your email and password \nor continue with social media',
                 textAlign: TextAlign.center,
               ),
-              SignForms()
+              Spacer(),
+              SignForms(),
+              Spacer(flex: 14),
             ],
           ),
         ),
@@ -55,22 +57,8 @@ class _SignFormsState extends State<SignForms> {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Email',
-              hintText: 'Enter our email',
-              //
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-              //
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              ),
+              hintText: 'Enter your email',
+              //floatingLabelBehavior: FloatingLabelBehavior.always,
             ),
           ),
         ],
