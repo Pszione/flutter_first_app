@@ -30,7 +30,7 @@ class DefaultBigButton extends StatelessWidget {
           //elevation: 5,
           //side: BorderSide(color: Colors.black, width: 5),
         ),
-        onPressed: () => onPress,
+        onPressed: () => onPress.call(),
         child: Text(
           text,
           style: TextStyle(
