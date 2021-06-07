@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 
 import 'package:flutter_first_app/constants_shop.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -59,7 +60,12 @@ class _SignFormsState extends State<SignForms> {
           buildEmailFormField(_sizes),
           SizedBox(height: _sizes.getProportionateScreenHeight(20)),
           buildPasswordFormField(_sizes),
-          SizedBox(height: _sizes.getProportionateScreenHeight(20))
+          SizedBox(height: _sizes.getProportionateScreenHeight(20)),
+          DefaultBigButton(
+            sizes: _sizes,
+            text: 'Sign in!',
+            onPress: () {},
+          ),
         ],
       ),
     );
