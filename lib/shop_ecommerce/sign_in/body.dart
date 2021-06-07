@@ -56,20 +56,42 @@ class _SignFormsState extends State<SignForms> {
     return Form(
       child: Column(
         children: <Widget>[
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              labelText: 'Email',
-              hintText: 'Enter your email',
-              //floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSuffixIcon(
-                sizes: _sizes,
-                svgIcon: 'assets/icons/Mail.svg',
-              ),
-            ),
-          ),
+          buildEmailFormField(_sizes),
+          SizedBox(height: _sizes.getProportionateScreenHeight(20)),
+          buildPasswordFormField(_sizes),
+          SizedBox(height: _sizes.getProportionateScreenHeight(20))
         ],
       ),
     );
   }
+
+  TextFormField buildEmailFormField(SizeConfig _sizes) {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        labelText: 'Email',
+        hintText: 'Enter your email',
+        //floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(
+          sizes: _sizes,
+          svgIcon: 'assets/icons/Mail.svg',
+        ),
+      ),
+    );
+  }
+}
+
+TextFormField buildPasswordFormField(SizeConfig _sizes) {
+  return TextFormField(
+    obscureText: true,
+    decoration: InputDecoration(
+      labelText: 'Password',
+      hintText: 'Enter your password',
+      //floatingLabelBehavior: FloatingLabelBehavior.always,
+      suffixIcon: CustomSuffixIcon(
+        sizes: _sizes,
+        svgIcon: 'assets/icons/Lock.svg',
+      ),
+    ),
+  );
 }
