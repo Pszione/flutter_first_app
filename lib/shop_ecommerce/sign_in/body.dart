@@ -57,6 +57,7 @@ class _SignFormsState extends State<SignForms> {
       child: Column(
         children: <Widget>[
           TextFormField(
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: 'Email',
               hintText: 'Enter your email',
