@@ -83,10 +83,16 @@ class _SignFormsState extends State<SignForms> {
   TextFormField buildEmailFormField(SizeConfig _sizes) {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      validator: (String value) {
-        if (value.isEmpty) {
+      validator: (String fieldValue) {
+        if ((fieldValue.isEmpty || fieldValue.length <= 3) &&
+            !errors.contains(kEmailNullError)) {
           setState(() {
-            errors.add('Please enter your email');
+            errors.add(kEmailNullError);
+          });
+        } else if (!kEmailValidatorRegex.hasMatch(fieldValue) &&
+            !errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.add(kInvalidEmailError);
           });
         }
         return null;
