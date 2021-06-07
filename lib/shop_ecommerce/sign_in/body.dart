@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
+import 'package:flutter_first_app/components/form_error.dart';
 
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
@@ -52,7 +53,7 @@ class SignForms extends StatefulWidget {
 
 class _SignFormsState extends State<SignForms> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<String> errors = <String>[];
+  final List<String> errors = <String>['Any error'];
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
@@ -64,10 +65,15 @@ class _SignFormsState extends State<SignForms> {
           SizedBox(height: _sizes.getProportionateScreenHeight(20)),
           buildPasswordFormField(_sizes),
           SizedBox(height: _sizes.getProportionateScreenHeight(20)),
+          FormErrorChecker(sizes: _sizes, errors: errors),
           DefaultBigButton(
             sizes: _sizes,
             text: 'Sign in!',
-            onPress: () {},
+            onPress: () {
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+              }
+            },
           ),
         ],
       ),
