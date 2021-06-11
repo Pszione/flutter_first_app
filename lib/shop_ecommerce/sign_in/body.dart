@@ -20,25 +20,27 @@ class Body extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: _sizes.getProportionateScreenWidth(20),
           ),
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: SizeConfig.screenHeight * 0.04),
-              Text(
-                'Welcome Back',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: _sizes.getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                Text(
+                  'Welcome Back',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: _sizes.getProportionateScreenWidth(28),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Sign in with your email and password \nor continue with social media',
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
-              SignForms(),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
-            ],
+                Text(
+                  'Sign in with your email and password \nor continue with social media',
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+                SignForms(),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+              ],
+            ),
           ),
         ),
       ),

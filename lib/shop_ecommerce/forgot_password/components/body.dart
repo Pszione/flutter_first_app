@@ -18,25 +18,27 @@ class Body extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: _sizes.getProportionateScreenWidth(20),
           ),
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: SizeConfig.screenHeight * 0.04),
-              Text(
-                'Forgot Password',
-                style: TextStyle(
-                  fontSize: _sizes.getProportionateScreenWidth(28),
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                Text(
+                  'Forgot Password',
+                  style: TextStyle(
+                    fontSize: _sizes.getProportionateScreenWidth(28),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Please enter your email and we will send \nyou a link to return to your account',
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
-              ForgotPasswordForm(),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
-            ],
+                Text(
+                  'Please enter your email and we will send \nyou a link to return to your account',
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+                ForgotPasswordForm(),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+              ],
+            ),
           ),
         ),
       ),
