@@ -57,7 +57,9 @@ class SignForms extends StatefulWidget {
 
 class _SignFormsState extends State<SignForms> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<String> errors = <String>['Any error'];
+  final List<String> errors = <String>[];
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
@@ -89,6 +91,7 @@ class _SignFormsState extends State<SignForms> {
   TextFormField buildEmailFormField(SizeConfig _sizes) {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
+      onSaved: (String newValue) => email = newValue,
       onChanged: (String fieldValue) {
         if ((fieldValue.isNotEmpty) && errors.contains(kEmailNullError)) {
           setState(() {
@@ -128,19 +131,46 @@ class _SignFormsState extends State<SignForms> {
       ),
     );
   }
-}
 
-TextFormField buildPasswordFormField(SizeConfig _sizes) {
-  return TextFormField(
-    obscureText: true,
-    decoration: InputDecoration(
-      labelText: 'Password',
-      hintText: 'Enter your password',
-      //floatingLabelBehavior: FloatingLabelBehavior.always,
-      suffixIcon: CustomSuffixIcon(
-        sizes: _sizes,
-        svgIcon: 'assets/icons/Lock.svg',
+  TextFormField buildPasswordFormField(SizeConfig _sizes) {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (String newValue) => password = newValue,
+      onChanged: (String fieldValue) {
+        if ((fieldValue.isNotEmpty) && errors.contains(kPassNullError)) {
+          setState(() {
+            errors.remove(kPassNullError);
+          });
+        } else if (fieldValue.length >= 6 && errors.contains(kShortPassError)) {
+          setState(() {
+            errors.remove(kShortPassError);
+          });
+        }
+        return null;
+      },
+      //
+      validator: (String fieldValue) {
+        if ((fieldValue.isEmpty || fieldValue.length <= 3) &&
+            !errors.contains(kPassNullError)) {
+          setState(() {
+            errors.add(kPassNullError);
+          });
+        } else if (fieldValue.length < 6 && !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: 'Password',
+        hintText: 'Enter your password',
+        //floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(
+          sizes: _sizes,
+          svgIcon: 'assets/icons/Lock.svg',
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
