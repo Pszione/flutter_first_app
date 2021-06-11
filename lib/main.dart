@@ -30,8 +30,7 @@ class AppShopEcommerce extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: shopAppTheme(),
       //home: ShopSplashScreen(),
-      //initialRoute: ShopSplashScreen.routeName,
-      initialRoute: ShopSignInScreen.routeName,
+      initialRoute: ShopSplashScreen.routeName,
       routes: routes,
     );
   }
