@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/splash/homepage_shop_splashscreen.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 
@@ -6,4 +7,6 @@ import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dar
 final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ShopSplashScreen.routeName: (BuildContext context) => ShopSplashScreen(),
   ShopSignInScreen.routeName: (BuildContext context) => ShopSignInScreen(),
+  ShopForgotPasswordScreen.routeName: (BuildContext context) =>
+      ShopForgotPasswordScreen(),
 };
