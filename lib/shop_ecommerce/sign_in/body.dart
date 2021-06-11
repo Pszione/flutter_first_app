@@ -4,6 +4,7 @@ import 'package:flutter_first_app/components/form_error.dart';
 
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
+import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -21,6 +22,7 @@ class Body extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
               Text(
                 'Welcome Back',
                 style: TextStyle(
@@ -33,9 +35,9 @@ class Body extends StatelessWidget {
                 'Sign in with your email and password \nor continue with social media',
                 textAlign: TextAlign.center,
               ),
-              Spacer(),
+              SizedBox(height: SizeConfig.screenHeight * 0.1),
               SignForms(),
-              Spacer(flex: 14),
+              SizedBox(height: SizeConfig.screenHeight * 0.1),
             ],
           ),
         ),
@@ -64,8 +66,9 @@ class _SignFormsState extends State<SignForms> {
           buildEmailFormField(_sizes),
           SizedBox(height: _sizes.getProportionateScreenHeight(20)),
           buildPasswordFormField(_sizes),
-          SizedBox(height: _sizes.getProportionateScreenHeight(20)),
+          SizedBox(height: _sizes.getProportionateScreenHeight(30)),
           FormErrorChecker(sizes: _sizes, errors: errors),
+          SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultBigButton(
             sizes: _sizes,
             text: 'Sign in!',
@@ -75,6 +78,7 @@ class _SignFormsState extends State<SignForms> {
               }
             },
           ),
+          SizedBox(height: SizeConfig.screenHeight * 0.1),
         ],
       ),
     );

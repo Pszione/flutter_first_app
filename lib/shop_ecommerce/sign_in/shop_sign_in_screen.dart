@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_in/body.dart';
 
@@ -12,7 +13,10 @@ class ShopSignInScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Sign In')),
+        title: Text(
+          'Sign In',
+          textAlign: TextAlign.center,
+        ),
       ),
       body: Body(),
     );
