@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first_app/shop_ecommerce/routes.dart';
-import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/shop_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 

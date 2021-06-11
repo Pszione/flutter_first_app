@@ -72,12 +72,12 @@ class _BodyState extends State<Body> {
                     Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
+                      children: List<AnimatedContainer>.generate(
                         splashesData.length,
                         (int index) => buildPagesDot(index: index),
                       ),
                     ),
-                    Spacer(flex: 3),
+                    SizedBox(height: SizeConfig.screenHeight * 0.1),
                     DefaultBigButton(
                       sizes: _sizes,
                       text: 'Continue',
@@ -86,7 +86,7 @@ class _BodyState extends State<Body> {
                             context, ShopSignInScreen.routeName);
                       },
                     ),
-                    Spacer(),
+                    SizedBox(height: SizeConfig.screenHeight * 0.1),
                   ],
                 ),
               ),

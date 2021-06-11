@@ -11,6 +11,7 @@ class ShopSplashScreen extends StatelessWidget {
     // Call init on your start screen
     SizeConfig().init(context);
     return Scaffold(
+      appBar: AppBar(),
       body: Body(),
     );
   }
