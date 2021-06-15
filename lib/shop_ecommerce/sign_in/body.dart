@@ -7,6 +7,8 @@ import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.d
 import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
+import 'no_account_sign_up.dart';
+
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
 
@@ -103,23 +105,7 @@ class _SignFormsState extends State<SignForms> {
             },
           ),
           SizedBox(height: _sizes.getProportionateScreenHeight(50)),
-          Row(
-            // this is how to center
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Don't have an account?",
-                style:
-                    TextStyle(fontSize: _sizes.getProportionateScreenWidth(16)),
-              ),
-              Text(
-                'Sign Up',
-                style: TextStyle(
-                    fontSize: _sizes.getProportionateScreenWidth(16),
-                    color: kPrimaryColor),
-              ),
-            ],
-          ),
+          NoAccountSignUp(sizes: _sizes),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
         ],
       ),
