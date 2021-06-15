@@ -75,8 +75,12 @@ class _SignFormsState extends State<SignForms> {
           Row(
             children: <Widget>[
               Checkbox(
-                value: false,
-                onChanged: (bool value) {},
+                value: rememberMe,
+                onChanged: (bool value) {
+                  setState(() {
+                    rememberMe = value;
+                  });
+                },
               ),
               Text('Remember me'),
               Spacer(),
