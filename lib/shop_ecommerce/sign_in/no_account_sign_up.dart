@@ -24,6 +24,7 @@ class NoAccountSignUp extends StatelessWidget {
           style: TextStyle(fontSize: _sizes.getProportionateScreenWidth(16)),
         ),
         GestureDetector(
+          // Wrong route name
           onTap: () => Navigator.popAndPushNamed(
               context, ShopForgotPasswordScreen.routeName),
           child: Text(

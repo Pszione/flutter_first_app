@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
+import 'package:flutter_first_app/shop_ecommerce/sign_in/no_account_sign_up.dart';
 
-import '../../../size_config.dart';
+import '../../size_config.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
@@ -54,12 +55,14 @@ class ForgotPasswordForm extends StatefulWidget {
 }
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<String> errors = <String>[];
   String email;
-  final List<String> errors = <String>['Any error'];
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
     return Form(
+      key: _formKey,
       child: Column(
         children: <Widget>[
           TextFormField(
@@ -79,12 +82,18 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             sizes: _sizes,
             errors: errors,
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.1),
+          SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultBigButton(
             sizes: _sizes,
             text: 'Continue',
-            onPress: () {},
+            onPress: () {
+              if (_formKey.currentState.validate()) {
+                // Do what you want to do
+              }
+            },
           ),
+          SizedBox(height: _sizes.getProportionateScreenHeight(50)),
+          NoAccountSignUp(sizes: _sizes),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           // NoAccountText(),
         ],
