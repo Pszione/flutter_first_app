@@ -76,6 +76,7 @@ class _SignFormsState extends State<SignForms> {
             children: <Widget>[
               Checkbox(
                 value: rememberMe,
+                activeColor: kPrimaryColor,
                 onChanged: (bool value) {
                   setState(() {
                     rememberMe = value;
@@ -100,6 +101,24 @@ class _SignFormsState extends State<SignForms> {
                 _formKey.currentState.save();
               }
             },
+          ),
+          SizedBox(height: _sizes.getProportionateScreenHeight(50)),
+          Row(
+            // this is how to center
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Don't have an account?",
+                style:
+                    TextStyle(fontSize: _sizes.getProportionateScreenWidth(16)),
+              ),
+              Text(
+                'Sign Up',
+                style: TextStyle(
+                    fontSize: _sizes.getProportionateScreenWidth(16),
+                    color: kPrimaryColor),
+              ),
+            ],
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
         ],
