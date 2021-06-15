@@ -60,6 +60,7 @@ class _SignFormsState extends State<SignForms> {
   final List<String> errors = <String>[];
   String email;
   String password;
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
@@ -70,7 +71,21 @@ class _SignFormsState extends State<SignForms> {
           buildEmailFormField(_sizes),
           SizedBox(height: _sizes.getProportionateScreenHeight(20)),
           buildPasswordFormField(_sizes),
-          SizedBox(height: _sizes.getProportionateScreenHeight(30)),
+          SizedBox(height: _sizes.getProportionateScreenHeight(10)),
+          Row(
+            children: <Widget>[
+              Checkbox(
+                value: false,
+                onChanged: (bool value) {},
+              ),
+              Text('Remember me'),
+              Spacer(),
+              Text(
+                'Forgot Password?',
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
+            ],
+          ),
           FormErrorChecker(sizes: _sizes, errors: errors),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultBigButton(
