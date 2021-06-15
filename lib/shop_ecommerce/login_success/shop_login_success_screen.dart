@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/login_success/body.dart';
 
 class ShopLoginSuccessScreen extends StatelessWidget {
   const ShopLoginSuccessScreen({Key key}) : super(key: key);
@@ -8,8 +9,9 @@ class ShopLoginSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Success'),
+        leading: SizedBox(),
       ),
+      body: Body(),
     );
   }
 }
