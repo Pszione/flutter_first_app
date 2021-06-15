@@ -4,6 +4,7 @@ import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_in/no_account_sign_up.dart';
 
+import '../../constants_shop.dart';
 import '../../size_config.dart';
 
 class Body extends StatelessWidget {
@@ -67,6 +68,36 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         children: <Widget>[
           TextFormField(
             keyboardType: TextInputType.emailAddress,
+            onSaved: (String newValue) => email = newValue,
+            onChanged: (String fieldValue) {
+              if ((fieldValue.isNotEmpty) && errors.contains(kEmailNullError)) {
+                setState(() {
+                  errors.remove(kEmailNullError);
+                });
+              } else if (kEmailValidatorRegex.hasMatch(fieldValue) &&
+                  errors.contains(kInvalidEmailError)) {
+                setState(() {
+                  errors.remove(kInvalidEmailError);
+                });
+              }
+              _formKey.currentState.validate();
+              return null;
+            },
+            //
+            validator: (String fieldValue) {
+              if ((fieldValue.isEmpty || fieldValue.length <= 3) &&
+                  !errors.contains(kEmailNullError)) {
+                setState(() {
+                  errors.add(kEmailNullError);
+                });
+              } else if (!kEmailValidatorRegex.hasMatch(fieldValue) &&
+                  !errors.contains(kInvalidEmailError)) {
+                setState(() {
+                  errors.add(kInvalidEmailError);
+                });
+              }
+              return null;
+            },
             decoration: InputDecoration(
               labelText: 'Email',
               hintText: 'Enter your recovery email',

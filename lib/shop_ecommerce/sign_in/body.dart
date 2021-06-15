@@ -5,6 +5,7 @@ import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/constants_shop.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
 import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 import 'no_account_sign_up.dart';
@@ -105,6 +106,8 @@ class _SignFormsState extends State<SignForms> {
             onPress: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                // Do want you want to do
+                Navigator.pushNamed(context, ShopLoginSuccessScreen.routeName);
               }
             },
           ),
@@ -131,6 +134,7 @@ class _SignFormsState extends State<SignForms> {
             errors.remove(kInvalidEmailError);
           });
         }
+        _formKey.currentState.validate();
         return null;
       },
       //
@@ -140,11 +144,13 @@ class _SignFormsState extends State<SignForms> {
           setState(() {
             errors.add(kEmailNullError);
           });
+          //return '';
         } else if (!kEmailValidatorRegex.hasMatch(fieldValue) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.add(kInvalidEmailError);
           });
+          //return '';
         }
         return null;
       },
@@ -174,6 +180,7 @@ class _SignFormsState extends State<SignForms> {
             errors.remove(kShortPassError);
           });
         }
+        _formKey.currentState.validate();
         return null;
       },
       //
@@ -183,10 +190,12 @@ class _SignFormsState extends State<SignForms> {
           setState(() {
             errors.add(kPassNullError);
           });
+          //return '';
         } else if (fieldValue.length < 6 && !errors.contains(kShortPassError)) {
           setState(() {
             errors.add(kShortPassError);
           });
+          //return '';
         }
         return null;
       },
