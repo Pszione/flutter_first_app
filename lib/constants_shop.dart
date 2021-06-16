@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/size_config.dart';
 
+// Colors
 const Color kPrimaryColor = Color(0xFFFF7643);
 const Color kPrimaryLightColor = Color(0xFFFFECDF);
 const LinearGradient kPrimaryGradientColor = LinearGradient(
@@ -10,9 +12,17 @@ const LinearGradient kPrimaryGradientColor = LinearGradient(
 const Color kSecondaryColor = Color(0xFF979797);
 const Color kTextColor = Color(0xFF757575);
 
-const Duration kAnimationDuration = Duration(milliseconds: 250);
+// Texts
+final TextStyle tHeadingStyle = TextStyle(
+  fontSize: SizeConfig().getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
 
-const Duration defaultDuration = Duration(milliseconds: 250);
+// Animation
+const Duration kAnimationDuration = Duration(milliseconds: 250);
+const Duration kDefaultDuration = Duration(milliseconds: 250);
 
 // Form Error
 final RegExp kEmailValidatorRegex =

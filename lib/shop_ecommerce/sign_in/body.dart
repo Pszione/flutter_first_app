@@ -8,7 +8,7 @@ import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password
 import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
-import 'no_account_sign_up.dart';
+import '../components/no_account_sign_up.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
