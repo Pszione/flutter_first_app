@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 import 'package:flutter_first_app/components/form_error.dart';
+import 'package:flutter_first_app/helper/keyboard_util.dart';
 import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 
 import '../../constants_shop.dart';
 import '../../size_config.dart';
 import 'default_big_button.dart';
-import 'no_account_sign_up.dart';
 
 class SignForms extends StatefulWidget {
   const SignForms({Key key}) : super(key: key);
@@ -31,7 +31,7 @@ class _SignFormsState extends State<SignForms> {
     }
   }
 
-  void removeError({String eWrror}) {
+  void removeError({String error}) {
     // there's something wrong here
     if (errors.contains(error)) {
       setState(() {
@@ -83,6 +83,7 @@ class _SignFormsState extends State<SignForms> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
+                KeyboardUtil.hideKeyboard(context);
                 Navigator.pushNamed(context, ShopLoginSuccessScreen.routeName);
               }
             },
