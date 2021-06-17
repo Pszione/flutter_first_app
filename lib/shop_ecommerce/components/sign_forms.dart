@@ -31,7 +31,8 @@ class _SignFormsState extends State<SignForms> {
     }
   }
 
-  void removeError({String error}) {
+  void removeError({String eWrror}) {
+    // there's something wrong here
     if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
@@ -96,33 +97,22 @@ class _SignFormsState extends State<SignForms> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (String newValue) => email = newValue,
       onChanged: (String fieldValue) {
-        if ((fieldValue.isNotEmpty) && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
-        } else if (kEmailValidatorRegex.hasMatch(fieldValue) &&
-            errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+        if (fieldValue.isNotEmpty) {
+          removeError(error: kEmailNullError);
+        } else if (kEmailValidatorRegex.hasMatch(fieldValue)) {
+          removeError(error: kInvalidEmailError);
         }
         _formKey.currentState.validate();
         return null;
       },
       //
       validator: (String fieldValue) {
-        if ((fieldValue.isEmpty || fieldValue.length <= 3) &&
-            !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
-          //return '';
-        } else if (!kEmailValidatorRegex.hasMatch(fieldValue) &&
-            !errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.add(kInvalidEmailError);
-          });
-          //return '';
+        if (fieldValue.isEmpty) {
+          addError(error: kEmailNullError);
+          return '';
+        } else if (!kEmailValidatorRegex.hasMatch(fieldValue)) {
+          addError(error: kInvalidEmailError);
+          return '';
         }
         return null;
       },
@@ -143,31 +133,22 @@ class _SignFormsState extends State<SignForms> {
       obscureText: true,
       onSaved: (String newValue) => password = newValue,
       onChanged: (String fieldValue) {
-        if ((fieldValue.isNotEmpty) && errors.contains(kPassNullError)) {
-          setState(() {
-            errors.remove(kPassNullError);
-          });
-        } else if (fieldValue.length >= 6 && errors.contains(kShortPassError)) {
-          setState(() {
-            errors.remove(kShortPassError);
-          });
+        if (fieldValue.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (fieldValue.length >= 6) {
+          removeError(error: kShortPassError);
         }
         _formKey.currentState.validate();
         return null;
       },
       //
       validator: (String fieldValue) {
-        if ((fieldValue.isEmpty || fieldValue.length <= 3) &&
-            !errors.contains(kPassNullError)) {
-          setState(() {
-            errors.add(kPassNullError);
-          });
-          //return '';
-        } else if (fieldValue.length < 6 && !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
-          //return '';
+        if (fieldValue.isEmpty) {
+          addError(error: kPassNullError);
+          return '';
+        } else if (fieldValue.length < 6) {
+          addError(error: kShortPassError);
+          return '';
         }
         return null;
       },
