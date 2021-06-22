@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/sign_up_forms.dart';
 
 import '../../constants_shop.dart';
 import '../../size_config.dart';
@@ -9,45 +10,38 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          Text(
-            'Register Account',
-            style: tHeadingStyle,
+    return SafeArea(
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: _sizes.getProportionateScreenWidth(20),
           ),
-          Text(
-            'Complete your details or continue \nwith social media',
-            textAlign: TextAlign.center,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                Text(
+                  'Register Account',
+                  style: tHeadingStyle,
+                ),
+                Text(
+                  'Complete your details or continue \nwith social media',
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+                SignUpForms(),
+                SizedBox(height: _sizes.getProportionateScreenHeight(30)),
+                Text(
+                  'By continuing you confirm that you agree \nwith our Terms of Services',
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: _sizes.getProportionateScreenHeight(50)),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+              ],
+            ),
           ),
-          SizedBox(height: _sizes.getProportionateScreenWidth(20)),
-          SignUpForms(),
-        ],
-      ),
-    );
-  }
-}
-
-class SignUpForms extends StatefulWidget {
-  const SignUpForms({Key key}) : super(key: key);
-
-  @override
-  _SignUpFormsState createState() => _SignUpFormsState();
-}
-
-class _SignUpFormsState extends State<SignUpForms> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<String> errors = <String>[];
-  String email;
-  String password;
-  String passwordConfirmation;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-        children: <Widget>[],
+        ),
       ),
     );
   }
