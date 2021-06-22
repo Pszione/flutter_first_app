@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 import 'package:flutter_first_app/components/form_error.dart';
+import 'package:flutter_first_app/helper/keyboard_util.dart';
+import 'package:flutter_first_app/shop_ecommerce/complete_profile/shop_complete_sign_up_profile_screen.dart';
 
 import '../../constants_shop.dart';
 import '../../size_config.dart';
@@ -59,8 +61,9 @@ class _SignUpFormsState extends State<SignUpForms> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to complete profile screen
-                // KeyboardUtil.hideKeyboard(context);
-                // Navigator.pushNamed(context, ShopCompleteProfileScreen.routeName);
+                KeyboardUtil.hideKeyboard(context);
+                Navigator.pushNamed(
+                    context, ShopCompleteSignUpProfileScreen.routeName);
               }
             },
           ),
@@ -110,12 +113,12 @@ class _SignUpFormsState extends State<SignUpForms> {
       obscureText: true,
       onSaved: (String newValue) => password = newValue,
       onChanged: (String fieldValue) {
+        password = fieldValue;
         if (fieldValue.isNotEmpty) {
           removeError(error: kPassNullError);
         } else if (fieldValue.length >= 6) {
           removeError(error: kShortPassError);
         }
-        password = fieldValue;
         _formKey.currentState.validate();
         return null;
       },
@@ -147,6 +150,7 @@ class _SignUpFormsState extends State<SignUpForms> {
       obscureText: true,
       onSaved: (String newValue) => passwordConfirmation = newValue,
       onChanged: (String fieldValue) {
+        passwordConfirmation = fieldValue;
         if (password == passwordConfirmation) {
           removeError(error: kMatchPassError);
         }
@@ -158,7 +162,6 @@ class _SignUpFormsState extends State<SignUpForms> {
         if (fieldValue.isEmpty) {
           return '';
         } else if (password != passwordConfirmation) {
-          // != ?
           addError(error: kMatchPassError);
           return '';
         }
