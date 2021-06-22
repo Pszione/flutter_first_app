@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_first_app/shop_ecommerce/components/sign_forms.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/sign_in_forms.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 import '../components/no_account_sign_up.dart';
@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.1),
-                SignForms(),
+                SignInForms(),
                 SizedBox(height: _sizes.getProportionateScreenHeight(50)),
                 NoAccountSignUp(sizes: _sizes),
                 SizedBox(height: SizeConfig.screenHeight * 0.1),

@@ -9,14 +9,14 @@ import '../../constants_shop.dart';
 import '../../size_config.dart';
 import 'default_big_button.dart';
 
-class SignForms extends StatefulWidget {
-  const SignForms({Key key}) : super(key: key);
+class SignInForms extends StatefulWidget {
+  const SignInForms({Key key}) : super(key: key);
 
   @override
-  _SignFormsState createState() => _SignFormsState();
+  _SignInFormsState createState() => _SignInFormsState();
 }
 
-class _SignFormsState extends State<SignForms> {
+class _SignInFormsState extends State<SignInForms> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<String> errors = <String>[];
   String email;
