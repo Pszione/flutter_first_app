@@ -162,6 +162,7 @@ class _SignUpFormsState extends State<SignUpForms> {
         if (fieldValue.isEmpty) {
           return '';
         } else if (password != passwordConfirmation) {
+          // != fieldValue
           addError(error: kMatchPassError);
           return '';
         }
