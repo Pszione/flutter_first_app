@@ -20,6 +20,22 @@ final TextStyle tHeadingStyle = TextStyle(
   height: 1.5,
 );
 
+final InputDecoration tOtpInputDecoration = InputDecoration(
+  // content padding made it finally work
+  contentPadding: EdgeInsets.symmetric(
+      vertical: SizeConfig().getProportionateScreenWidth(15)),
+  enabledBorder: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  border: outlineInputBorder(),
+);
+
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(27),
+    borderSide: BorderSide(color: kTextColor),
+  );
+}
+
 // Animation
 const Duration kAnimationDuration = Duration(milliseconds: 250);
 const Duration kDefaultDuration = Duration(milliseconds: 250);
