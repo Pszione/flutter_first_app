@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/components/custom_suffix_icon.dart';
 import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/helper/keyboard_util.dart';
+import 'package:flutter_first_app/shop_ecommerce/otp_sms/otp_sms_screen.dart';
 
 import '../../constants_shop.dart';
 import '../../size_config.dart';
@@ -59,12 +60,13 @@ class _CompleteSignUpProfileState extends State<CompleteSignUpProfile> {
             sizes: _sizes,
             text: 'Continue!',
             onPress: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                // Go to OTP screen
-                KeyboardUtil.hideKeyboard(context);
-                //Navigator.pushNamed(context, ShopLoginSuccessScreen.routeName);
-              }
+              // UNDONE
+              //if (_formKey.currentState.validate()) {
+              _formKey.currentState.save();
+              // Go to OTP screen
+              KeyboardUtil.hideKeyboard(context);
+              Navigator.pushNamed(context, ShopOtpSmsScreen.routeName);
+              //}
             },
           ),
         ],
