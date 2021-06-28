@@ -9,7 +9,7 @@ class ShopCompleteSignUpProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Complete Profile'),
+        title: Text('Sign Up'),
       ),
       body: Body(),
     );
