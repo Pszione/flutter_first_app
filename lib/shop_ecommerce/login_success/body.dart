@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
+import 'package:flutter_first_app/shop_ecommerce/home_screen/shop_home_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -29,7 +30,9 @@ class Body extends StatelessWidget {
           child: DefaultBigButton(
             sizes: _sizes,
             text: 'Continue!',
-            onPress: () {},
+            onPress: () {
+              Navigator.pushNamed(context, ShopHomeScreen.routeName);
+            },
           ),
         ),
       ],
