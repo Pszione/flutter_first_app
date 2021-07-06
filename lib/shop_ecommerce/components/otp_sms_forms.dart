@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/home_screen/shop_home_screen.dart';
 
 import '../../constants_shop.dart';
 import '../../size_config.dart';
@@ -56,7 +57,9 @@ class _OtpFormState extends State<OtpForm> {
           DefaultBigButton(
             sizes: _sizes,
             text: 'Verify!',
-            onPress: () {},
+            onPress: () {
+              Navigator.pushNamed(context, ShopHomeScreen.routeName);
+            },
           ),
           SizedBox(height: _sizes.getProportionateScreenHeight(30)),
         ],
