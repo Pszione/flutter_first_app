@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/cashback_home_banner.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/icon_btn_with_notification.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/search_bar_field.dart';
 import 'package:flutter_first_app/size_config.dart';
@@ -15,7 +16,11 @@ class Body extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              SizedBox(height: SizeConfig.screenHeight * 0.02),
               buildHomeSearchHeader(_sizes),
+              SizedBox(height: SizeConfig.screenHeight * 0.02),
+              CashbackBanner(sizes: _sizes),
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
             ],
           ),
         ),
@@ -31,7 +36,6 @@ class Body extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SizedBox(height: SizeConfig.screenHeight * 0.1),
           SearchBarField(),
           IconBtnWithNotificationDot(
             svgPath: 'assets/icons/Cart Icon.svg',
