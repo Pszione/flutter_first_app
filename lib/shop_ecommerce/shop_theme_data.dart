@@ -27,15 +27,15 @@ AppBarTheme shopBarTheme() {
 
 TextTheme shopTextTheme() {
   return TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+    bodyText1: TextStyle(color: kTextDarkColor),
+    bodyText2: TextStyle(color: kTextDarkColor),
   );
 }
 
 InputDecorationTheme shopInputDecorationTheme() {
   final OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(28),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: BorderSide(color: kTextDarkColor),
     gapPadding: 10,
   );
   return InputDecorationTheme(

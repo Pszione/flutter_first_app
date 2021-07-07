@@ -9,13 +9,18 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SizeConfig _sizes = SizeConfig().init(context);
     final List<Map<String, String>> categories = [
-      {'icon': 'assets/icons/Flash Icon.svg', 'text': 'Super Deals'},
-      {'icon': 'assets/icons/Bill Icon.svg', 'text': 'Bill'},
-      {'icon': 'assets/icons/Game Icon.svg', 'text': 'Game'},
-      {'icon': 'assets/icons/Gift Icon.svg', 'text': 'Daily Gifts'},
-      {'icon': 'assets/icons/Discover.svg', 'text': 'More...'},
+      <String, String>{
+        'icon': 'assets/icons/Flash Icon.svg',
+        'text': 'Super Deals'
+      },
+      <String, String>{'icon': 'assets/icons/Bill Icon.svg', 'text': 'Bill'},
+      <String, String>{'icon': 'assets/icons/Game Icon.svg', 'text': 'Game'},
+      <String, String>{
+        'icon': 'assets/icons/Gift Icon.svg',
+        'text': 'Daily Gifts'
+      },
+      <String, String>{'icon': 'assets/icons/Discover.svg', 'text': 'More...'},
     ];
     return Padding(
       padding: kAppSafeBorder,

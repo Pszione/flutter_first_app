@@ -4,9 +4,9 @@ import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password
 import 'package:flutter_first_app/shop_ecommerce/home_screen/shop_home_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/otp_sms/otp_sms_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_up/shop_sign_up_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/splash/homepage_shop_splashscreen.dart';
-import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 
 // All our app pages routes will be available here
 final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{

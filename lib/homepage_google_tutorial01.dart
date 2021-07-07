@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter/material.dart';
 
 // The object StatefulWidget is immutable, and can be discarded and then
 // generated again. But the State data will persist through all widget cycle
