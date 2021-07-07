@@ -37,32 +37,35 @@ class IconBtnWithNotificationDot extends StatelessWidget {
             ),
             child: SvgPicture.asset(svgPath),
           ),
-          if (numCounter != 0)
-            Positioned(
-              top: -3,
-              right: 0, // positioned made it work
-              child: Container(
-                width: _sizes.getProportionateScreenWidth(16),
-                height: _sizes.getProportionateScreenWidth(16),
-                decoration: BoxDecoration(
-                  color: Color(0xFFFF4848),
-                  shape: BoxShape.circle,
-                  border: Border.all(width: 1.5, color: Colors.white),
-                ),
-                child: Center(
-                  child: Text(
-                    '$numCounter',
-                    style: TextStyle(
-                      fontSize: _sizes.getProportionateScreenWidth(10),
-                      height: 1,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-            )
+          if (numCounter != 0) buildNotificationDot(_sizes),
         ],
+      ),
+    );
+  }
+
+  Positioned buildNotificationDot(SizeConfig _sizes) {
+    return Positioned(
+      top: -3,
+      right: 0, // positioned made it work
+      child: Container(
+        width: _sizes.getProportionateScreenWidth(16),
+        height: _sizes.getProportionateScreenWidth(16),
+        decoration: BoxDecoration(
+          color: Color(0xFFFF4848),
+          shape: BoxShape.circle,
+          border: Border.all(width: 1.5, color: Colors.white),
+        ),
+        child: Center(
+          child: Text(
+            '$numCounter',
+            style: TextStyle(
+              fontSize: _sizes.getProportionateScreenWidth(10),
+              height: 1,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
       ),
     );
   }
