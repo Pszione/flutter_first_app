@@ -10,7 +10,10 @@ const LinearGradient kPrimaryGradientColor = LinearGradient(
   colors: <Color>[Color(0xFFFFA53E), Color(0xFFFF7643)],
 );
 const Color kSecondaryColor = Color(0xFF979797);
-const Color kTextColor = Color(0xFF757575);
+const Color kSecondaryLightColor = Color(0xFFFFDDC7); // #FEE9DB
+const Color kTextLightColor = Colors.white;
+const Color kTextDarkColor = Color(0xFF757575);
+const Color kTextGrayColor = Color(0xFF9e9e9e);
 
 // Texts
 final TextStyle tHeadingStyle = TextStyle(
@@ -32,7 +35,7 @@ final InputDecoration tOtpInputDecoration = InputDecoration(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(27),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: BorderSide(color: kTextDarkColor),
   );
 }
 
