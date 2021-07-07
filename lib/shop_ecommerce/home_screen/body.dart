@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/cashback_home_banner.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/icon_btn_with_notification.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/search_bar_field.dart';
+import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 import 'package:flutter_first_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -19,7 +20,11 @@ class Body extends StatelessWidget {
               SizedBox(height: SizeConfig.screenHeight * 0.02),
               buildHomeSearchHeader(_sizes),
               SizedBox(height: SizeConfig.screenHeight * 0.02),
-              CashbackBanner(sizes: _sizes),
+              CashbackBanner(
+                sizes: _sizes,
+                bgColor: Color(0xFF4A3298),
+                onPress: () {},
+              ),
               SizedBox(height: SizeConfig.screenHeight * 0.04),
             ],
           ),
