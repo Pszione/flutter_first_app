@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+
+import '../../constants_shop.dart';
+import '../../size_config.dart';
+
+class SectionTitle extends StatelessWidget {
+  const SectionTitle({
+    Key key,
+    @required SizeConfig sizes,
+    @required this.text,
+    @required this.onPress,
+  })  : _sizes = sizes,
+        super(key: key);
+
+  final SizeConfig _sizes;
+  final String text;
+  final GestureTapCallback onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: kAppSafeBorder,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            text,
+            style: TextStyle(
+                fontSize: _sizes.getProportionateScreenWidth(18),
+                color: Colors.black),
+          ),
+          GestureDetector(
+            onTap: onPress,
+            child: Text('See more'),
+          ),
+        ],
+      ),
+    );
+  }
+}
