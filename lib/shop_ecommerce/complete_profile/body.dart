@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/complete_sign_up_forms.dart';
 
-import '../constants_shop.dart';
 import '../../size_config.dart';
+import '../constants_shop.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);

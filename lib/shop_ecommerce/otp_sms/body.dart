@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_app/shop_ecommerce/constants_shop.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/otp_sms_forms.dart';
+import 'package:flutter_first_app/shop_ecommerce/constants_shop.dart';
 
 import '../../size_config.dart';
 

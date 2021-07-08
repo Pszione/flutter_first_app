@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../constants_shop.dart';
 import '../../size_config.dart';
+import '../constants_shop.dart';
 
 class IconBtnWithNotificationDot extends StatelessWidget {
   const IconBtnWithNotificationDot({

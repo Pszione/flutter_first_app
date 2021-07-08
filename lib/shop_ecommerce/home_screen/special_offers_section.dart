@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/section_title.dart';
 
-import '../constants_shop.dart';
 import '../../size_config.dart';
+import '../constants_shop.dart';
 
 class SpecialOffersSection extends StatelessWidget {
   const SpecialOffersSection({

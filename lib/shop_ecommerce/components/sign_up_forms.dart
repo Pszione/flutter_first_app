@@ -4,8 +4,8 @@ import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/helper/keyboard_util.dart';
 import 'package:flutter_first_app/shop_ecommerce/complete_profile/shop_complete_sign_up_profile_screen.dart';
 
-import '../constants_shop.dart';
 import '../../size_config.dart';
+import '../constants_shop.dart';
 import 'default_big_button.dart';
 
 class SignUpForms extends StatefulWidget {
