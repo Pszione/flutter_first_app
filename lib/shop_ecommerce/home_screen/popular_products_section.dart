@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_app/shop_ecommerce/components/product_card.dart';
+import 'package:flutter_first_app/shop_ecommerce/home_screen/product_card.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/section_title.dart';
 import 'package:flutter_first_app/shop_ecommerce/models/product.dart';
 
-import '../../constants_shop.dart';
+import '../constants_shop.dart';
 import '../../size_config.dart';
 
 class PopularProductsSection extends StatelessWidget {
@@ -22,7 +22,7 @@ class PopularProductsSection extends StatelessWidget {
         SectionTitle(
           sizes: _sizes,
           text: 'Popular Products',
-          onPress: () {},
+          onPressMore: () {},
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.01),
         SingleChildScrollView(

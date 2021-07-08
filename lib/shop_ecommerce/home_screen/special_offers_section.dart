@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/section_title.dart';
 
-import '../../constants_shop.dart';
+import '../constants_shop.dart';
 import '../../size_config.dart';
 
 class SpecialOffersSection extends StatelessWidget {
@@ -20,12 +20,13 @@ class SpecialOffersSection extends StatelessWidget {
         SectionTitle(
           sizes: _sizes,
           text: 'Special for you',
-          onPress: () {},
+          onPressMore: () {},
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.01),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SpecialOfferCard(
                 sizes: _sizes,

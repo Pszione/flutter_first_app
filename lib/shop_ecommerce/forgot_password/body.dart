@@ -4,7 +4,7 @@ import 'package:flutter_first_app/components/form_error.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/default_big_button.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/no_account_sign_up.dart';
 
-import '../../constants_shop.dart';
+import '../constants_shop.dart';
 import '../../size_config.dart';
 
 class Body extends StatelessWidget {

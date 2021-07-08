@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants_shop.dart';
+import '../constants_shop.dart';
 import '../../size_config.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -8,13 +8,13 @@ class SectionTitle extends StatelessWidget {
     Key key,
     @required SizeConfig sizes,
     @required this.text,
-    @required this.onPress,
+    @required this.onPressMore,
   })  : _sizes = sizes,
         super(key: key);
 
   final SizeConfig _sizes;
   final String text;
-  final GestureTapCallback onPress;
+  final GestureTapCallback onPressMore;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SectionTitle extends StatelessWidget {
                 color: Colors.black),
           ),
           GestureDetector(
-            onTap: onPress,
+            onTap: onPressMore,
             child: Text('See more'),
           ),
         ],
