@@ -42,6 +42,7 @@ OutlineInputBorder outlineInputBorder() {
 final EdgeInsetsGeometry kAppSafeBorder = EdgeInsets.symmetric(
   horizontal: SizeConfig().getProportionateScreenWidth(20),
 );
+final double kAppSafeBorderAs = SizeConfig().getProportionateScreenWidth(20);
 
 // Animation
 const Duration kAnimationDuration = Duration(milliseconds: 250);
