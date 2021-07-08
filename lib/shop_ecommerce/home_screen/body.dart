@@ -4,6 +4,7 @@ import 'package:flutter_first_app/shop_ecommerce/components/cashback_home_banner
 import 'package:flutter_first_app/shop_ecommerce/components/categories_cards.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/icon_btn_with_notification.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/search_bar_field.dart';
+import 'package:flutter_first_app/shop_ecommerce/components/section_title.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/special_offers_section.dart';
 import 'package:flutter_first_app/size_config.dart';
 
@@ -31,6 +32,12 @@ class Body extends StatelessWidget {
               Categories(),
               SizedBox(height: SizeConfig.screenHeight * 0.04),
               SpecialOffersSection(sizes: _sizes),
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
+              SectionTitle(
+                sizes: _sizes,
+                text: 'Popular Products',
+                onPress: () {},
+              ),
             ],
           ),
         ),
