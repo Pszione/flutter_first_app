@@ -76,7 +76,7 @@ List<Product> demoProducts = <Product>[
     title: 'Gloves XC Omega - Polygon',
     price: 36.55,
     description: description,
-    rating: 4.1,
+    rating: 3.9,
     isFavorite: true,
     isPopular: true,
   ),
@@ -94,7 +94,7 @@ List<Product> demoProducts = <Product>[
     title: 'Logitech Head',
     price: 20.20,
     description: description,
-    rating: 4.1,
+    rating: 4.0,
     isFavorite: true,
   ),
 ];
