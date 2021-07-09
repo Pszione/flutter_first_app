@@ -30,14 +30,22 @@ class PopularProductsSection extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              ...List<ProductCard>.generate(
-                demoProducts.length,
-                (int index) => ProductCard(
+              ...List<Widget>.generate(demoProducts.length, (int index) {
+                return ProductCard(
                   sizes: _sizes,
                   product: demoProducts[index],
                   productLink: '/endpoint',
-                ),
-              ),
+                );
+                // if (demoProducts[index].isPopular) {
+                //   return ProductCard(
+                //     sizes: _sizes,
+                //     product: demoProducts[index],
+                //     productLink: '/endpoint',
+                //   );
+                // }
+                // // here by default width and height is 0
+                // return SizedBox.shrink();
+              }),
               // always at the end
               SizedBox(width: kAppSafeBorderAs),
             ],
