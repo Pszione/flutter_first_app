@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/section_title.dart';
 import 'package:flutter_first_app/shop_ecommerce/home_screen/product_card.dart';
 import 'package:flutter_first_app/shop_ecommerce/models/product.dart';
+import 'package:flutter_first_app/shop_ecommerce/product_details/shop_product_details_screen.dart';
 
 import '../../size_config.dart';
 import '../constants_shop.dart';
@@ -34,7 +35,12 @@ class PopularProductsSection extends StatelessWidget {
                 return ProductCard(
                   sizes: _sizes,
                   product: demoProducts[index],
-                  productLink: '/endpoint',
+                  onPressViewDetails: () => Navigator.pushNamed(
+                    context,
+                    ShopProductDetailsScreen.routeName,
+                    arguments:
+                        ProductDetailsArguments(product: demoProducts[index]),
+                  ),
                 );
                 // if (demoProducts[index].isPopular) {
                 //   return ProductCard(
