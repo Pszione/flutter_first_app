@@ -21,7 +21,7 @@ class ShopProductDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(routeArguments.product.title),
       ),
-      body: Body(),
+      body: Body(product: routeArguments.product),
     );
   }
 }
