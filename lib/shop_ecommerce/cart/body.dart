@@ -6,9 +6,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../size_config.dart';
 import 'cart_item_card.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({Key key}) : super(key: key);
 
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
@@ -30,6 +35,11 @@ class Body extends StatelessWidget {
               sizes: _sizes,
               cart: demoCarts[index],
             ),
+            onDismissed: (DismissDirection direction) {
+              setState(() {
+                demoCarts.removeAt(index);
+              });
+            },
           ),
         ),
       ),
