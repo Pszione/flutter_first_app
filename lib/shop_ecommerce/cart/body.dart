@@ -12,29 +12,55 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SizeConfig _sizes = SizeConfig().init(context);
-    return Column(
-      children: <Widget>[
-        Dismissible(
-          key: Key(demoCarts[0].product.id.toString()), // id
-          background: Container(
-            padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs),
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(20),
-            ), // 0xFFFFE6E6
-            child: Row(
-              children: <Widget>[
-                Spacer(),
-                SvgPicture.asset('assets/icons/Trash.svg'),
-              ],
+    return Padding(
+      padding: kAppSafeBorder,
+      child: ListView.builder(
+        itemCount: demoCarts.length,
+        itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Dismissible(
+            key: Key(demoCarts[index].product.id.toString()), // id
+            direction: DismissDirection.endToStart,
+            //
+            background: DismissBackground(
+              color: Color(0xFFFFE6E6),
+              iconPath: 'assets/icons/Trash.svg',
+            ),
+            child: CartItemCard(
+              sizes: _sizes,
+              cart: demoCarts[index],
             ),
           ),
-          child: CartItemCard(
-            sizes: _sizes,
-            cart: demoCarts[0],
-          ),
         ),
-      ],
+      ),
+    );
+  }
+}
+
+class DismissBackground extends StatelessWidget {
+  const DismissBackground({
+    Key key,
+    @required this.color,
+    this.iconPath,
+  }) : super(key: key);
+
+  final Color color;
+  final String iconPath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: <Widget>[
+          Spacer(),
+          if (iconPath != null) SvgPicture.asset(iconPath),
+        ],
+      ),
     );
   }
 }
