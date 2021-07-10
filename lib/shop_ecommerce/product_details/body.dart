@@ -31,11 +31,13 @@ class Body extends StatelessWidget {
                   onPressMore: () {},
                 ),
                 BaseRoundedContainer(
+                  sizes: _sizes,
                   color: Color(0xFFF6F7F9),
                   child: Column(
                     children: <Widget>[
                       ColorDotsList(product: product, sizes: _sizes),
                       BaseRoundedContainer(
+                        sizes: _sizes,
                         color: Colors.white,
                         child: Padding(
                           padding: EdgeInsets.only(
