@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_first_app/shop_ecommerce/cart/shop_cart_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/complete_profile/shop_complete_sign_up_profile_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/home_screen/shop_home_screen.dart';
@@ -24,4 +25,5 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ShopHomeScreen.routeName: (BuildContext context) => ShopHomeScreen(),
   ShopProductDetailsScreen.routeName: (BuildContext context) =>
       ShopProductDetailsScreen(),
+  ShopCartScreen.routeName: (BuildContext context) => ShopCartScreen(),
 };

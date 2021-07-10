@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/cart/shop_cart_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/icon_btn_with_notification.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/search_bar_field.dart';
 import 'package:flutter_first_app/shop_ecommerce/constants_shop.dart';
@@ -21,7 +22,25 @@ class Body extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(height: SizeConfig.screenHeight * 0.02),
-              buildHomeSearchHeader(_sizes),
+              Padding(
+                padding: kAppSafeBorder,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SearchBarField(),
+                    IconBtnWithNotificationDot(
+                      svgPath: 'assets/icons/Cart Icon.svg',
+                      onPress: () => Navigator.pushNamed(
+                          context, ShopCartScreen.routeName),
+                    ),
+                    IconBtnWithNotificationDot(
+                      svgPath: 'assets/icons/Bell.svg',
+                      numCounter: 3,
+                      onPress: () {},
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: SizeConfig.screenHeight * 0.02),
               CashbackBanner(
                 sizes: _sizes,
@@ -37,27 +56,6 @@ class Body extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Padding buildHomeSearchHeader(SizeConfig _sizes) {
-    return Padding(
-      padding: kAppSafeBorder,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SearchBarField(),
-          IconBtnWithNotificationDot(
-            svgPath: 'assets/icons/Cart Icon.svg',
-            onPress: () {},
-          ),
-          IconBtnWithNotificationDot(
-            svgPath: 'assets/icons/Bell.svg',
-            numCounter: 3,
-            onPress: () {},
-          ),
-        ],
       ),
     );
   }
