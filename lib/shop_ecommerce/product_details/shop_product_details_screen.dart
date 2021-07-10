@@ -20,7 +20,7 @@ class ShopProductDetailsScreen extends StatelessWidget {
     final ProductDetailsArguments routeArguments =
         ModalRoute.of(context).settings.arguments as ProductDetailsArguments;
     return Scaffold(
-      backgroundColor: Color(0xFFF5F6F9), // white kinda gray
+      backgroundColor: Color(0xFFE3E5E8), // 0xFFF5F6F9 // white kinda gray
       appBar: AppBarWithRating(rating: routeArguments.product.rating),
       body: Body(product: routeArguments.product),
     );
