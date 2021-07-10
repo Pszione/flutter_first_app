@@ -12,9 +12,15 @@ class Body extends StatelessWidget {
     final SizeConfig _sizes = SizeConfig().init(context);
     return Column(
       children: <Widget>[
-        CartItemCard(
-          sizes: _sizes,
-          cart: demoCarts[0],
+        Dismissible(
+          key: Key(demoCarts[0].product.id.toString()), // id
+          background: Container(
+            decoration: BoxDecoration(color: Colors.grey),
+          ),
+          child: CartItemCard(
+            sizes: _sizes,
+            cart: demoCarts[0],
+          ),
         ),
       ],
     );
