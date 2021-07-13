@@ -34,7 +34,7 @@ class BottomNavBarApp extends StatelessWidget {
       child: SafeArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
+          children: <Widget>[
             IconButton(
               icon: SvgPicture.asset(
                 'assets/icons/Shop Icon.svg',

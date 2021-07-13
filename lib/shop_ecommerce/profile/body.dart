@@ -9,7 +9,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
+        children: <Widget>[
           ProfilePicture(),
           const SizedBox(height: 20),
           ProfileMenuCard(

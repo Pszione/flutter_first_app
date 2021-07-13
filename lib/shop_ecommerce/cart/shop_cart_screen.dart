@@ -71,12 +71,12 @@ class CheckOutCart extends StatelessWidget {
             SizedBox(height: _sizes.getProportionateScreenWidth(10)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 Text.rich(
                   TextSpan(
                     text: 'Total:\n',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    children: [
+                    children: <TextSpan>[
                       TextSpan(
                         text:
                             '\$${getDemoCartTotalPrice().floorToDouble()}', // backslash to cancel $ var function

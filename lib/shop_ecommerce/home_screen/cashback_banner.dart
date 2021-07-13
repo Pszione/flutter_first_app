@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/shop_ecommerce/cart/body.dart';
-import 'package:flutter_first_app/shop_ecommerce/constants_shop.dart';
 
 import '../../size_config.dart';
 

@@ -18,7 +18,7 @@ class ColorDotsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int selectedColor = 1;
+    const int selectedColor = 1;
     return Padding(
       padding: kAppSafeBorder,
       child: Row(

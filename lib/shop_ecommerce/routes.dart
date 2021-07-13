@@ -27,5 +27,5 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ShopProductDetailsScreen.routeName: (BuildContext context) =>
       ShopProductDetailsScreen(),
   ShopCartScreen.routeName: (BuildContext context) => ShopCartScreen(),
-  ShopProfileScreen.routeName: (context) => ShopProfileScreen(),
+  ShopProfileScreen.routeName: (BuildContext context) => ShopProfileScreen(),
 };
