@@ -6,6 +6,7 @@ import 'package:flutter_first_app/shop_ecommerce/home_screen/shop_home_screen.da
 import 'package:flutter_first_app/shop_ecommerce/login_success/shop_login_success_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/otp_sms/otp_sms_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/product_details/shop_product_details_screen.dart';
+import 'package:flutter_first_app/shop_ecommerce/profile/shop_profile_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_in/shop_sign_in_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/sign_up/shop_sign_up_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/splash/homepage_shop_splashscreen.dart';
@@ -26,4 +27,5 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ShopProductDetailsScreen.routeName: (BuildContext context) =>
       ShopProductDetailsScreen(),
   ShopCartScreen.routeName: (BuildContext context) => ShopCartScreen(),
+  ShopProfileScreen.routeName: (context) => ShopProfileScreen(),
 };

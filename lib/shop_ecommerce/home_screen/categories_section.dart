@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/shop_ecommerce/profile/shop_profile_screen.dart';
 
 import '../constants_shop.dart';
 import 'category_card.dart';
@@ -34,7 +35,8 @@ class Categories extends StatelessWidget {
             (int index) => CategoryCard(
               iconPath: categories[index]['icon'],
               text: categories[index]['text'],
-              onPress: () {},
+              onPress: () =>
+                  Navigator.pushNamed(context, ShopProfileScreen.routeName),
             ),
           ),
         ],
