@@ -37,6 +37,7 @@ class CartItemCard extends StatelessWidget {
           width: kAppSafeBorderAs,
         ),
         Column(
+          // Text
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(

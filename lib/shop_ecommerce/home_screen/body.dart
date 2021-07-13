@@ -3,7 +3,7 @@ import 'package:flutter_first_app/shop_ecommerce/cart/shop_cart_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/icon_btn_with_notification.dart';
 import 'package:flutter_first_app/shop_ecommerce/components/search_bar_field.dart';
 import 'package:flutter_first_app/shop_ecommerce/constants_shop.dart';
-import 'package:flutter_first_app/shop_ecommerce/home_screen/cashback_home_banner.dart';
+import 'package:flutter_first_app/shop_ecommerce/home_screen/cashback_banner.dart';
 import 'package:flutter_first_app/shop_ecommerce/home_screen/categories_section.dart';
 import 'package:flutter_first_app/shop_ecommerce/home_screen/popular_products_section.dart';
 import 'package:flutter_first_app/shop_ecommerce/home_screen/special_offers_section.dart';
@@ -45,6 +45,8 @@ class Body extends StatelessWidget {
               CashbackBanner(
                 sizes: _sizes,
                 bgColor: Color(0xFF4A3298),
+                subtitle: 'A Summer Surprise',
+                discount: 13, // percentage
                 onPress: () {},
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.04),
