@@ -78,7 +78,8 @@ class CheckOutCart extends StatelessWidget {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     children: [
                       TextSpan(
-                        text: '\$337.15', // backslash to cancel $ var function
+                        text:
+                            '\$${getDemoCartTotalPrice().floorToDouble()}', // backslash to cancel $ var function
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ],
