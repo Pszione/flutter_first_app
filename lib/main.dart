@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_first_app/online_shop/constants_online_shop.dart';
+import 'package:flutter_first_app/online_shop/home_screen/shop_home_screen.dart';
 import 'package:flutter_first_app/shop_ecommerce/routes.dart';
 import 'package:flutter_first_app/shop_ecommerce/shop_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,11 +15,31 @@ import 'homepage_riverpod_simplified.dart';
 import 'shop_ecommerce/splash/homepage_shop_splashscreen.dart';
 
 void main() {
-  runApp(AppShopEcommerce());
+  runApp(AppOnlineShop());
+  //runApp(AppShopEcommerce());
 }
 
 //
 final ThemeModeChanger themeChanger = ThemeModeChanger();
+
+class AppOnlineShop extends StatelessWidget {
+  const AppOnlineShop({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Online Shop',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: ShopHomeScreen(),
+      //initialRoute: ShopSplashScreen.routeName,
+      //routes: routes,
+    );
+  }
+}
 
 class AppShopEcommerce extends StatelessWidget {
   const AppShopEcommerce({Key key}) : super(key: key);
