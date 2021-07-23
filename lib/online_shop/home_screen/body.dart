@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/online_shop/constants_online_shop.dart';
 import 'package:flutter_first_app/online_shop/home_screen/categories.dart';
+import 'package:flutter_first_app/online_shop/home_screen/product_card.dart';
 import 'package:flutter_first_app/online_shop/models/product.dart';
 
 class Body extends StatelessWidget {
@@ -25,41 +26,25 @@ class Body extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs),
           child: Categories(),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(kAppSafeBorderAs),
-                height: 180,
-                width: 160,
-                decoration: BoxDecoration(
-                  color: demoProducts[0].color,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Image.asset(demoProducts[0].image),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs),
+            child: GridView.builder(
+              itemCount: demoProducts.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.8,
+                mainAxisSpacing: kAppSafeBorderAs,
+                crossAxisSpacing: kAppSafeBorderAs,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: kAppSafeBorderAs / 2),
-                child: Text(
-                  demoProducts[0].title,
-                  style: TextStyle(color: kTextColor, fontSize: 16),
-                ),
+              itemBuilder: (BuildContext context, int index) => ProductCard(
+                product: demoProducts[index],
+                onPress: () {},
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 4),
-                child: Text(
-                  '\$${demoProducts[0].price}',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+            ),
           ),
-        )
+        ),
+        SizedBox(height: 25),
       ],
     );
   }
