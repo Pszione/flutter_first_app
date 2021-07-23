@@ -14,7 +14,8 @@ class _CategoriesState extends State<Categories> {
     'Hand bag',
     'Jewellery',
     'Footwear',
-    'Dresses'
+    'Dresses',
+    'Designer Clothes',
   ];
   int selectedIndex = 0;
 
@@ -42,7 +43,7 @@ class _CategoriesState extends State<Categories> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kAppSafeBorderAs * 0.8),
+        padding: EdgeInsets.only(right: kAppSafeBorderAs * 1.25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
