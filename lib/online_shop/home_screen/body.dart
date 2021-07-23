@@ -3,6 +3,7 @@ import 'package:flutter_first_app/online_shop/constants_online_shop.dart';
 import 'package:flutter_first_app/online_shop/home_screen/categories.dart';
 import 'package:flutter_first_app/online_shop/home_screen/product_card.dart';
 import 'package:flutter_first_app/online_shop/models/product.dart';
+import 'package:flutter_first_app/online_shop/product_details/shop_product_details_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
@@ -33,13 +34,19 @@ class Body extends StatelessWidget {
               itemCount: demoProducts.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 0.8,
+                childAspectRatio: 0.73,
                 mainAxisSpacing: kAppSafeBorderAs,
                 crossAxisSpacing: kAppSafeBorderAs,
               ),
               itemBuilder: (BuildContext context, int index) => ProductCard(
                 product: demoProducts[index],
-                onPress: () {},
+                onPress: () => Navigator.push(
+                    context,
+                    MaterialPageRoute<ProductDetailsScreen>(
+                      builder: (BuildContext context) => ProductDetailsScreen(
+                        product: demoProducts[index],
+                      ),
+                    )),
               ),
             ),
           ),

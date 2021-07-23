@@ -10,45 +10,48 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
 
   final Product product;
-  final Function onPress;
+  final GestureTapCallback onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          // ninja solution to make them fill equally
-          child: Container(
-            padding: EdgeInsets.all(kAppSafeBorderAs),
-            // height: 180,
-            // width: 160,
-            decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Image.asset(product.image),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6),
-          child: Text.rich(
-            TextSpan(
-              text: '${product.title}\n',
-              style: TextStyle(color: kTextColor, fontSize: 17),
-              children: <TextSpan>[
-                TextSpan(
-                  text: '\$${product.price}',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
+    return GestureDetector(
+      onTap: onPress,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            // ninja solution to make them fill equally
+            child: Container(
+              padding: EdgeInsets.all(kAppSafeBorderAs),
+              // height: 180,
+              // width: 160,
+              decoration: BoxDecoration(
+                color: product.color,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Image.asset(product.image),
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: Text.rich(
+              TextSpan(
+                text: '${product.title}\n',
+                style: TextStyle(color: kTextColor, fontSize: 17),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '\$${product.price}',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
