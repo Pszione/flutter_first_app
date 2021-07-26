@@ -4,7 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../constants_online_shop.dart';
 
 class AppBarWithSearch extends PreferredSize {
-  const AppBarWithSearch();
+  const AppBarWithSearch({this.iconsColor = kTextColor});
+
+  final Color iconsColor;
 
   @override
   //Size get preferredSize => super.preferredSize;
@@ -18,12 +20,14 @@ class AppBarWithSearch extends PreferredSize {
       leading: Padding(
         padding: EdgeInsets.only(left: kAppSafeBorderAs),
         child: SizedBox(
-          child: FlatButton(
-            onPressed: () {},
+          child: IconButton(
             padding: EdgeInsets.zero,
-            color: Colors.white,
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: iconsColor,
+            ),
             //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            child: Icon(Icons.arrow_back_ios_new),
+            onPressed: () {},
           ),
         ),
       ),
@@ -32,14 +36,14 @@ class AppBarWithSearch extends PreferredSize {
         IconButton(
           icon: SvgPicture.asset(
             'assets/icons/search.svg',
-            color: kTextColor,
+            color: iconsColor,
           ),
           onPressed: () {},
         ),
         IconButton(
           icon: SvgPicture.asset(
             'assets/icons/cart.svg',
-            color: kTextColor,
+            color: iconsColor,
           ),
           onPressed: () {},
         ),
