@@ -19,7 +19,7 @@ class Product {
 List<Product> demoProducts = <Product>[
   Product(
     id: 1,
-    title: 'Office Code',
+    title: 'Party Fashion',
     price: 234,
     size: 12,
     description: dummyText,
@@ -29,7 +29,7 @@ List<Product> demoProducts = <Product>[
   Product(
     id: 2,
     title: 'Belt Bag',
-    price: 234,
+    price: 99,
     size: 8,
     description: dummyText,
     image: 'assets/images/bag_2.png',
@@ -38,7 +38,7 @@ List<Product> demoProducts = <Product>[
   Product(
     id: 3,
     title: 'Hang Top',
-    price: 234,
+    price: 210,
     size: 10,
     description: dummyText,
     image: 'assets/images/bag_3.png',
@@ -47,7 +47,7 @@ List<Product> demoProducts = <Product>[
   Product(
     id: 4,
     title: 'Old Fashion',
-    price: 234,
+    price: 166,
     size: 11,
     description: dummyText,
     image: 'assets/images/bag_4.png',
@@ -55,8 +55,8 @@ List<Product> demoProducts = <Product>[
   ),
   Product(
     id: 5,
-    title: 'Office Code',
-    price: 234,
+    title: 'Red Class',
+    price: 420,
     size: 12,
     description: dummyText,
     image: 'assets/images/bag_5.png',
@@ -65,7 +65,7 @@ List<Product> demoProducts = <Product>[
   Product(
     id: 6,
     title: 'Office Code',
-    price: 234,
+    price: 870,
     size: 12,
     description: dummyText,
     image: 'assets/images/bag_6.png',
