@@ -2,7 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first_app/online_shop/constants_online_shop.dart';
 import 'package:flutter_first_app/online_shop/models/product.dart';
+import 'package:flutter_first_app/online_shop/product_details/product_color_and_size.dart';
+import 'package:flutter_first_app/online_shop/product_details/product_description.dart';
 import 'package:flutter_first_app/online_shop/product_details/product_title_with_image.dart';
+
+import 'cart_counter.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key, @required this.product}) : super(key: key);
@@ -35,32 +39,9 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: [
-                          Column(
-                            children: <Widget>[
-                              Text('Pedro Santos Lindão'),
-                              Container(
-                                width: 24,
-                                height: 24,
-                                decoration: BoxDecoration(
-                                  // Border
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: Color(0xFF356C95),
-                                  ),
-                                ),
-                                // Fill
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFF356C95),
-                                      shape: BoxShape.circle),
-                                ),
-                              ),
-                            ],
-                          )
-                        ], // Color
-                      )
+                      ProductColorAndSize(product: product),
+                      ProductDescription(product: product),
+                      ProductCounterWithFavorite(),
                     ],
                   ),
                 ),
