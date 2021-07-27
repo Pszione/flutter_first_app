@@ -6,6 +6,7 @@ import 'package:flutter_first_app/online_shop/product_details/product_color_and_
 import 'package:flutter_first_app/online_shop/product_details/product_description.dart';
 import 'package:flutter_first_app/online_shop/product_details/product_title_with_image.dart';
 
+import 'add_to_cart.dart';
 import 'cart_counter.dart';
 
 class Body extends StatelessWidget {
@@ -40,8 +41,12 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       ProductColorAndSize(product: product),
+                      SizedBox(height: kAppSafeBorderAs / 2),
                       ProductDescription(product: product),
+                      SizedBox(height: kAppSafeBorderAs / 2),
                       ProductCounterWithFavorite(),
+                      SizedBox(height: kAppSafeBorderAs / 2),
+                      AddToCart(product: product)
                     ],
                   ),
                 ),
