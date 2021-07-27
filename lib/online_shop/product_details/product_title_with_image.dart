@@ -47,9 +47,12 @@ class ProductTitleWithImage extends StatelessWidget {
               ),
               SizedBox(width: kAppSafeBorderAs),
               Expanded(
-                child: Image.asset(
-                  product.image,
-                  fit: BoxFit.fitWidth,
+                child: Hero(
+                  tag: product.id.toString(), // animation info link
+                  child: Image.asset(
+                    product.image,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             ],

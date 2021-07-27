@@ -29,7 +29,10 @@ class ProductCard extends StatelessWidget {
                 color: product.color,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Image.asset(product.image),
+              child: Hero(
+                tag: product.id.toString(), // animation info link
+                child: Image.asset(product.image),
+              ),
             ),
           ),
           Padding(
